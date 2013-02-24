@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+*.swp
+*.directory
+cache
+.rvmrc
+config/deploy.rb
+public/system/
+public/contribuyentes/
+.sass-cache/
+config/deploy.rb
