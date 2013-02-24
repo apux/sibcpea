@@ -3,7 +3,7 @@ class Alumno < ActiveRecord::Base
   OTRAS_BECAS = ["NA", "PRONABES", "Alfredo Harp Helú", "Alimenticia", "Otra"]
 
   # Associations
-  has_many :alumnos_ciclos
+  has_many :alumnos_ciclos, :dependent => :destroy
   has_many :ciclos, :through => :alumnos_ciclos
   has_many :grupos, :through => :alumnos_ciclos
   has_many :tutorias, :dependent => :destroy
