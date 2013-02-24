@@ -1,0 +1,9 @@
+<% @egresados.each do |egresado| %>
+  <ul>
+    <li>
+    <%= egresado.alumno.nombre_completo %>
+    </li>
+  </ul>
+<% end %>
+<br />
+<%= link_to 'Lista completa de egresados', lista_egresados_path %>

@@ -1,0 +1,37 @@
+<h1>Lista de profesores</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Numero de trabajador</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Categoria</th>
+      <th>Seguro social</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profesores.each do |profesor| %>
+      <tr>
+        <td><%= profesor.numero_trabajador %></td>
+        <td><%= profesor.nombre %></td>
+        <td><%= profesor.apellido_paterno %></td>
+        <td><%= profesor.apellido_materno %></td>
+        <td><%= profesor.categoria %></td>
+        <td><%= profesor.seguro_social %></td>
+        <td><%= link_to 'Mostrar', profesor %></td>
+        <td><%= link_to 'Editar', edit_profesor_path(profesor) if can? :update, profesor %></td>
+        <td><%= link_to 'Eliminar', profesor, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, profesor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Profesor', new_profesor_path if can? :create, Profesor %>
+<%= link_to 'Listado para imprimir', lista_imprimir_profesores_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  profesor_ciclo: 
+  materia: 
+  grupo: 
+  hora: 2011-03-09 11:25:02
+
+two:
+  profesor_ciclo: 
+  materia: 
+  grupo: 
+  hora: 2011-03-09 11:25:02

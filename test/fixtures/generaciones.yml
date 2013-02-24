@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ciclo1_id: 1
+  ciclo2_id: 1
+  descripcion: MyString
+
+two:
+  ciclo1_id: 1
+  ciclo2_id: 1
+  descripcion: MyString

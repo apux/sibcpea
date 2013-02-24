@@ -1,0 +1,34 @@
+<%= form_for(@asistencia) do |f| %>
+  <%= render 'shared/error_messages', :target => @asistencia %>
+
+  <div class="field">
+    <%= f.label :asistencia_grupo %><br />
+    <%= f.text_field :asistencia_grupo %>
+  </div>
+  <div class="field">
+    <%= f.label :alumno_ciclo %><br />
+    <%= f.text_field :alumno_ciclo %>
+  </div>
+  <div class="field">
+    <%= f.label :presente %><br />
+    <%= f.check_box :presente %>
+  </div>
+  <div class="field">
+    <%= f.label :observacion %><br />
+    <%= f.text_field :observacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

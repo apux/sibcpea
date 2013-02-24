@@ -1,0 +1,31 @@
+<h1>Lista de institutos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Clave</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @institutos.each do |instituto| %>
+      <tr>
+        <td><%= instituto.clave %></td>
+        <td><%= instituto.nombre %></td>
+        <td><%= instituto.descripcion %></td>
+        <td><%= link_to 'Mostrar', instituto %></td>
+        <td><%= link_to 'Editar', edit_instituto_path(instituto) if can? :update, instituto %></td>
+        <td><%= link_to 'Eliminar', instituto, :confirm => '¿Está usted seguro?', :method => :delete  if can? :destroy, instituto  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Instituto', new_instituto_path if can? :create, Instituto %>

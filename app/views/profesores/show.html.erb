@@ -1,0 +1,72 @@
+<p>
+  <b>Numero de trabajador:</b>
+  <%= @profesor.numero_trabajador %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @profesor.nombre %>
+</p>
+
+<p>
+  <b>Apellido paterno:</b>
+  <%= @profesor.apellido_paterno %>
+</p>
+
+<p>
+  <b>Apellido materno:</b>
+  <%= @profesor.apellido_materno %>
+</p>
+
+<p>
+  <b>Categoría:</b>
+  <%= @profesor.categoria %>
+</p>
+
+<p>
+  <b>Grado académico/Especialidad:</b>
+  <%= @profesor.grado_academico %>
+</p>
+
+<p>
+  <b>Línea de investigación actual:</b>
+  <%= @profesor.linea_investigacion_actual %>
+</p>
+
+<p>
+  <b>Seguro social:</b>
+  <%= @profesor.seguro_social %>
+</p>
+
+<p>
+<b>Correos:</b>
+<% @profesor.correos.each do |c| %>
+  <p>
+    <%= c.correo %>
+  </p>
+<% end %>
+</p>
+
+<p>
+<b>Teléfonos:</b>
+<% @profesor.telefonos.each do |t| %>
+  <p>
+    <%= t.telefono %>
+  </p>
+<% end %>
+</p>
+
+<p>
+  <b>Curriculum:</b>
+  <%= link_to @profesor.curriculum_file_name, @profesor.curriculum.to_s if @profesor.curriculum_file_name %>
+</p>
+
+<p>
+  <b>Resguardo:</b>
+  <%= link_to @profesor.resguardo_file_name, @profesor.resguardo.to_s if  @profesor.resguardo_file_name%>
+</p>
+
+
+
+<%= link_to 'Editar', edit_profesor_path(@profesor) if can? :update, @profesor %> |
+<%= link_to 'Atrás', profesores_path %>

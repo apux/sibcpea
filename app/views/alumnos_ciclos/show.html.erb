@@ -1,0 +1,17 @@
+<p>
+  <b>Alumno:</b>
+  <%= @alumno_ciclo.alumno.nombre_completo %>
+</p>
+
+<p>
+  <b>Ciclo:</b>
+  <%= @alumno_ciclo.ciclo.clave %>
+</p>
+
+<p>
+  <b>Grupo:</b>
+  <%= @alumno_ciclo.grupo.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_alumno_ciclo_path(@alumno_ciclo) %> |
+<%= link_to 'Atrás', alumnos_ciclos_path %>

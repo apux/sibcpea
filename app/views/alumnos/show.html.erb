@@ -1,0 +1,53 @@
+<p>
+<b>Matrícula:</b>
+<%= @alumno.matricula %>
+</p>
+
+<p>
+<b>Nombre:</b>
+<%= @alumno.nombre %>
+</p>
+
+<p>
+<b>Apellido paterno:</b>
+<%= @alumno.apellido_paterno %>
+</p>
+
+<p>
+<b>Apellido materno:</b>
+<%= @alumno.apellido_materno %>
+</p>
+
+<p>
+<b>Sexo:</b>
+<%= @alumno.sexo %>
+</p>
+
+<p>
+<b>Correo:</b>
+<%= @alumno.correo %>
+</p>
+<p>
+<b>Telefono:</b>
+<%= @alumno.telefono %>
+</p>
+<p>
+<b>Porcentaje de beca:</b>
+<%= @alumno.porcentaje_beca %>
+</p>
+<p>
+<b>Porcentaje de beca:</b>
+<%= @alumno.otras_becas %>
+</p>
+<p>
+<b>Lugar de origen:</b>
+<%= @alumno.origen %>
+</p>
+<p>
+<b>Domicilio:</b>
+<%= @alumno.domicilio %>
+</p>
+
+
+<%= link_to 'Editar', edit_alumno_path(@alumno) %> |
+<%= link_to 'Atrás', alumnos_path %>

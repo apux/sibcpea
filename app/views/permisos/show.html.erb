@@ -1,0 +1,13 @@
+<p>
+<b>Tipo de permiso:</b>
+<%= @permiso.tipo_permiso %>
+</p>
+
+<p>
+<b>Descripción:</b>
+<%= @permiso.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_permiso_path(@permiso) if can? :update,  @permiso %> |
+<%= link_to 'Atrás', permisos_path %>

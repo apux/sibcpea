@@ -1,0 +1,127 @@
+<%= form_for(@profesor_ciclo) do |f| %>
+  <%= render 'shared/error_messages', :target => @profesor_ciclo %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos de la relación profesor-ciclo</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr> 
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </td> 
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :ciclo %>:
+      </td>
+      <td>
+        <b><%= @ciclo_actual.clave %></b>
+        <%= f.hidden_field :ciclo_id, :value => @ciclo_actual.id.to_s %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :profesor %>:
+      </td>
+      <td>
+        <%= f.select :profesor_id, @profesores.collect{|c| [c.nombre_completo, c.id]} %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        Lunes: 
+      </td>
+      <td>
+        <%= f.label :horario1_lunes, '1:' %>
+        <%= f.text_field :horario1_lunes, :size => 20 %>
+        <%= f.label :horario2_lunes, '2:' %>
+        <%= f.text_field :horario2_lunes, :size => 20  %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        Martes:
+      </td>
+      <td>
+        <%= f.label :horario1_martes, '1:' %>
+        <%= f.text_field :horario1_martes, :size => 20  %>
+        <%= f.label :horario2_martes, '2:' %>
+        <%= f.text_field :horario2_martes, :size => 20  %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        Miércoles:
+      </td>
+      <td>
+        <%= f.label :horario1_miercoles, '1:' %>
+        <%= f.text_field :horario1_miercoles, :size => 20  %>
+        <%= f.label :horario2_miercoles, '2:' %>
+        <%= f.text_field :horario2_miercoles, :size => 20  %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        Jueves:
+      </td>
+      <td>
+        <%= f.label :horario1_jueves, '1:' %>
+        <%= f.text_field :horario1_jueves, :size => 20  %>
+        <%= f.label :horario2_jueves, '2:' %>
+        <%= f.text_field :horario2_jueves, :size => 20  %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        Viernes:
+      </td>
+      <td>
+        <%= f.label :horario1_viernes, '1:' %>
+        <%= f.text_field :horario1_viernes, :size => 20  %>
+        <%= f.label :horario2_viernes, '2:' %>
+        <%= f.text_field :horario2_viernes, :size => 20  %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Materias/grupos asignados para este cilco:</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <div class="profesores_materias" style="padding-left:50px">
+          <% f.fields_for :profesores_materias do |pm_form| %>
+            <%= render 'profesor_materia_fields', :f => pm_form %>
+          <% end %>
+          <div style="padding-bottom:20px">
+            <%= link_to_create "Asignar nueva materia", ProfesorMateria.new, f %>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+      Event.observe(element, 'keyup', function(){
+        element.value = element.value.toUpperCase();
+        });
+      }
+      );
+  -->
+  </script>

@@ -1,0 +1,12 @@
+<p>
+  <b>Nombre:</b>
+  <%= @aula.nombre %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @aula.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_aula_path(@aula) if can? :update, @aula %> |
+<%= link_to 'Atrás', aulas_path %>

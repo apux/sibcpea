@@ -1,0 +1,2 @@
+module GeneracionesHelper
+end

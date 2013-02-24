@@ -1,0 +1,146 @@
+<%= form_for(@profesor, :html => { :multipart => true }) do |f| %>
+  <%= render 'shared/error_messages', :target => @profesor %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del Profesor</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :numero_trabajador, 'Número de trabajador' %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :numero_trabajador %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :nombre %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :nombre %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :apellido_paterno %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :apellido_paterno %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :apellido_materno %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :apellido_materno %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :categoria %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :categoria %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :grado_academico, 'Grado académico/Especialidad' %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :grado_academico %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :linea_investigacion_actual, 'Línea de investigación actual' %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :linea_investigacion_actual %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :seguro_social %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :seguro_social %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Correos:
+        </td>
+        <td class="input">
+          <div class="correos">
+            <%= f.fields_for :correos do |correo_form| %>
+              <%= render 'correo_fields', :f => correo_form %>
+            <% end %>
+            <div style="float:right">
+              <%= link_to_create "Agregar correo", Correo.new, f %>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="name">
+          Teléfonos:
+        </td>
+        <td class="input">
+          <div class="telefonos">
+            <%= f.fields_for :telefonos do |telefono_form| %> 
+              <%= render 'telefono_fields', :f => telefono_form %>
+            <% end %>
+            <div style="float:right">
+              <%= link_to_create "Agregar teléfono", Telefono.new, f %>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="name">
+          <%= f.label :curriculum %>:
+        </td>
+        <td class="input">
+          <%= f.file_field :curriculum %>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="name">
+          <%= f.label :resguardo %>:
+        </td>
+        <td class="input">
+          <%= f.file_field :resguardo %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

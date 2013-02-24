@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  alumno: 
+  generacion: 
+  titulado: false
+  metodo: MyString
+  fecha: 2011-03-09
+
+two:
+  alumno: 
+  generacion: 
+  titulado: false
+  metodo: MyString
+  fecha: 2011-03-09

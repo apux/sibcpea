@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha: MyString
+  descripcion: MyString
+  calendario_entrega: 
+
+two:
+  fecha: MyString
+  descripcion: MyString
+  calendario_entrega: 

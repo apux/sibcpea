@@ -1,0 +1,33 @@
+<h1>Lista de materias</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Clave</th>
+      <th>Nombre</th>
+      <th>Creditos</th>
+      <th>Semestre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materias.each do |materia| %>
+      <tr>
+        <td><%= materia.clave %></td>
+        <td><%= materia.nombre %></td>
+        <td><%= materia.creditos %></td>
+        <td><%= materia.semestre.nombre %></td>
+        <td><%= link_to 'Mostrar', materia if can? :read, materia %></td>
+        <td><%= link_to 'Editar', edit_materia_path(materia) if can? :edit, materia %></td>
+        <td><%= link_to 'Eliminar', materia, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, materia %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Materia', new_materia_path if can? :create, Materia %>

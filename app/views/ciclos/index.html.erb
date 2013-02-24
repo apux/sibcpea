@@ -1,0 +1,35 @@
+<h1>Lista de ciclos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Clave</th>
+      <th>Tipo</th>
+      <th>Fecha inicio</th>
+      <th>Fecha fin</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ciclos.each do |ciclo| %>
+      <tr>
+        <td><%= ciclo.clave %></td>
+        <td><%= ciclo.tipo %></td>
+        <td><%= ciclo.fecha_inicio %></td>
+        <td><%= ciclo.fecha_fin %></td>
+        <td><%= ciclo.descripcion %></td>
+        <td><%= link_to 'Mostrar', ciclo %></td>
+        <td><%= link_to 'Editar', edit_ciclo_path(ciclo) if can? :update, ciclo %></td>
+        <td><%= link_to 'Eliminar', ciclo, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, ciclo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Ciclo', new_ciclo_path if can? :create, Ciclo %>

@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  avance_programatico: 
+  porcentaje_programa_semestre1: 1.5
+  porcentaje_programa_semestre2: 1.5
+  porcentaje_programa_semestre3: 1.5
+  porcentaje_programa_semestre4: 1.5
+  porcentaje_programa_semestre_total: 1.5
+  porcentaje_unidad1: 1.5
+  porcentaje_unidad2: 1.5
+  porcentaje_unidad3: 1.5
+  porcentaje_unidad4: 1.5
+  porcentaje_unidad_total: 1.5
+  porcentaje_proyecto_semestre1: 1.5
+  porcentaje_proyecto_semestre2: 1.5
+  porcentaje_proyecto_semestre3: 1.5
+  porcentaje_proyecto_semestre4: 1.5
+  porcentaje_proyecto_semestre_total: 1.5
+  material_didactico_empleado: MyString
+  material_didactico_generado: MyString
+
+two:
+  avance_programatico: 
+  porcentaje_programa_semestre1: 1.5
+  porcentaje_programa_semestre2: 1.5
+  porcentaje_programa_semestre3: 1.5
+  porcentaje_programa_semestre4: 1.5
+  porcentaje_programa_semestre_total: 1.5
+  porcentaje_unidad1: 1.5
+  porcentaje_unidad2: 1.5
+  porcentaje_unidad3: 1.5
+  porcentaje_unidad4: 1.5
+  porcentaje_unidad_total: 1.5
+  porcentaje_proyecto_semestre1: 1.5
+  porcentaje_proyecto_semestre2: 1.5
+  porcentaje_proyecto_semestre3: 1.5
+  porcentaje_proyecto_semestre4: 1.5
+  porcentaje_proyecto_semestre_total: 1.5
+  material_didactico_empleado: MyString
+  material_didactico_generado: MyString

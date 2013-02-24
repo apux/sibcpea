@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistemas de Información para Apoyo al Proceso de Enseñanza-Aprendizaje</title>
+    <%= stylesheet_link_tag "scaffold", "estructura", "contenido", "contenido_detalles" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <title>SIBC PEA</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <div id="top_headerleft">
+          <div id="logotype">
+          </div> <!--logotype-->
+          <div id="universidad">
+            UNIVERSIDAD TECNOLOGICA DE LA MIXTECA
+          </div><!--universidad-->
+          <div id="area">
+            <ul><li>AREA: </li></ul>
+          </div> <!--area-->
+          <div id="info_area"> JEFATURA DE INGENIERIA INDUSTRIAL 
+          </div><!--info-area-->
+          <div id="date">
+            <ul><li><%= l Date.today, :format => :long %></li></ul>
+          </div> <!--date-->	
+          <div id="time">
+            <ul><li><div id="clock"></div></li></ul>
+          </div> <!--time-->
+        </div> <!--top_headerleft-->
+        <div id="top_headerright">
+          <div id="left_noticias">
+          </div>
+          <div id="center_noticias">
+            <center>
+              <script type="text/javascript">
+                //<![CDATA[
+              new PeriodicalExecuter(function() {new Ajax.Updater('avisos', '/avisos/consultar', {asynchronous:true, evalScripts:true, onComplete:function(request){new Effect.Highlight('avisos')} })}, 180)
+              //]]>
+              </script>
+              <% aviso = Aviso.last %>
+              <div id="avisos" style="margin-top:10px; height: 55px;">
+                <%= aviso.aviso if aviso %>
+              </div>
+            </center>
+          </div>
+          <div id="right_noticias">
+          </div>
+          <div id="top_headercomment">
+            <% if aviso %>
+              <div id="comentar">
+                <%= link_to '', new_aviso_comentario_path(aviso) %>
+              </div>
+            <% end %>
+            <div id="publicar">
+              <%= link_to '', new_aviso_path %>
+            </div>
+          </div><!--top_headercomment-->
+
+        </div> <!--top_headerright-->
+
+      </div> <!--header-->
+
+      <!--MENÚ--> 
+
+      <div id="menu"> 
+        <ul id="pmenu">
+
+          <!--menu 1-->
+          <li><a class="catalogos" href="#nogo"><span>CATALOGOS &#187;</span></a>
+          <ul>
+            <li>
+            <% if can? :create, Alumno %>
+              <%= link_to 'Alumnos', alumnos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Profesor %>
+              <%= link_to 'Profesores', profesores_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Grupo %>
+              <%= link_to 'Grupos', grupos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Ciclo %>
+              <%= link_to 'Ciclos', ciclos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Semestre %>
+              <%= link_to 'Semestres', semestres_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Materia %>
+              <%= link_to 'Materias', materias_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Generacion %>
+              <%= link_to 'Generaciones', generaciones_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Aula %>
+              <%= link_to 'Aulas', aulas_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Instituto %>
+              <%= link_to 'Institutos', institutos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Carrera %>
+              <%= link_to 'Carreras', carreras_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, Permiso %>
+              <%= link_to 'Permisos', permisos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :read, Documento %>
+              <%= link_to 'Documentos', documentos_path %>
+            <% end %>
+            </li>
+          </ul>
+          </li>
+          <!--termina menu 1-->
+
+
+          <!--menu 2-->
+          <li><a class="calificaciones" href="#nogo"><span>CALIFICACIONES</span></a>
+          <ul>
+            <li>
+            <% if can? :create, Calificacion %>
+              <%= link_to 'Registrar calificaciones', calificaciones_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :read, ProfesorCiclo %>
+              <%= link_to 'Profesor ciclo', profesores_ciclos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, AlumnoCiclo %>
+              <%= link_to 'Inscribir alumno', alumnos_ciclos_path %>
+            <% end %>
+            <li>
+            <% if can? :create, Egresado %>
+              <%= link_to 'Egresados', egresados_path %>
+            <% end %>
+            </li>
+          </ul>
+          </li>
+          <!--termina menu 2-->
+
+          <!--menu 3-->
+          <li><a class="asistencias" href="#nogo"><span>ASISTENCIAS</span></a>
+
+          <ul>
+            <li>
+            <% if can? :create, Asistencia %>
+              <%= link_to 'Asistencia a clase', asistencia_grupos_path %>
+            <% end %>
+            </li>
+          </ul>
+
+          </li>
+          <!--termina menu 3-->
+
+          <!--menu 4-->
+          <li><a class="avances_programaticos" href="#nogo"><span>AVANCES PROGRAMATICOS</span></a>
+          <ul>
+            <li>
+            <% if can? :create, AvanceProgramatico %>
+              <%= link_to 'Reportar avance', avances_programaticos_path %>
+            <% end %>
+            </li>
+          </ul>
+
+          </li>
+
+          <!--menu 5-->
+          <li><a class="tutorias" href="#nogo"><span>TUTORIAS</span></a>
+
+          <ul>
+            <li>
+            <% if can? :create, Tutoria %>
+              <%= link_to 'Definir tutoría', tutorias_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, RegistroTutoria %>
+              <%= link_to 'Sesión de tutoría', registro_tutorias_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, RegistroTutoria %>
+              <%= link_to 'Asistencia a asesoría', asesorias_path %>
+            <% end %>
+            </li>
+          </ul>
+
+          <!--menu 6-->
+          <li><a class="laboratorios" href="#nogo"><span>LABORATORIOS</span></a>
+          <ul>
+            <li>
+            <% if can? :create, Laboratorio %>
+              <%= link_to 'Laboratorios', laboratorios_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :create, CalendarioRecurso %>
+              <%= link_to 'Reservar recurso', new_calendario_recurso_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :read, CalendarioRecurso %>
+              <%= link_to 'Ver horario', "/laboratorios/1/semana/#{Date.today.cweek - 1}" %>
+            <% end %>
+            </li>
+          </ul>
+          </li>
+
+          <!--menu 7-->
+          <li><a class="reportes" href="#nogo" ><span>REPORTES</span></a>
+          <ul>
+            <li>
+            <% if can? :reporte, AsistenciaGrupo %>
+              <%= link_to 'Lista Asistencia', reporte_asistencia_grupos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :reporte, Calificacion %>
+              <%= link_to 'Lista Calificaciones', reporte_calificaciones_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :reporte, AvanceProgramatico %>
+              <%= link_to 'Avances Programáticos', reporte_avances_programaticos_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :reporte, Asesoria %>
+              <%= link_to 'Asesorías', reporte_asesorias_path %>
+            <% end %>
+            </li>
+            <li>
+            <% if can? :reporte, Tutoria %>
+              <%= link_to 'Tutorías', reporte_tutorias_path %>
+            <% end %>
+            </li>
+          </ul>
+          </li>
+        </ul>
+      </div> <!--menu--> 
+
+
+
+      <div id="bgcontent">
+        <div id="content">
+
+          <center>
+            <% flash.each do |name, msg| %>
+              <%= content_tag :div, msg, :id => "flash#{name}" %>
+            <% end %>
+
+            <%= yield %>
+          </center>
+        </div><!--content-->
+      </div><!--bgcontent-->
+
+
+    </div> <!--wrapper-->
+    <div id="top">
+      <div id="SIBCPA">
+        <a href=""></a>
+      </div> 
+
+      <div id="USUARIO_WRAPPER">
+        <% if usuario_actual %>
+          <div id="usuario">
+          </div> <!--usuario-->
+        <% end %>
+
+        <div id="info_usuario">
+          <% if usuario_actual %>
+            <%= usuario_actual.login %>
+          <% end %>
+        </div> <!--info_usuario-->
+      </div> 
+
+      <% if usuario_actual %>
+        <div id="closesesion">
+          <%= link_to '', logout_path %>
+        </div> 
+      <% else %>
+        <%= link_to 'Ingresar', login_path %> o 
+        <%= link_to 'Registrarse', registro_path %>
+      <% end %>
+
+
+    </div><!--div_top-->
+
+  </body>
+</html>
+
+<script>
+  <!--
+  function put_time(){
+    var my_date = new Date();
+    var hours = my_date.getHours();
+    var minutes = my_date.getMinutes();
+    var seconds = my_date.getSeconds();
+    if (hours <= 9)
+    hours = "0" + hours;
+    if (minutes <= 9)
+    minutes = "0" + minutes;
+    if (seconds <= 9)
+    seconds = "0" + seconds;
+    document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds;
+    setTimeout("put_time()", 1000);
+  }
+  put_time();
+  //-->
+</script>
+

@@ -1,0 +1,31 @@
+<h1>Lista de grupos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Semestre</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos.each do |grupo| %>
+      <tr>
+        <td><%= grupo.nombre %></td>
+        <td><%= grupo.semestre.nombre %></td>
+        <td><%= grupo.descripcion %></td>
+        <td><%= link_to 'Mostrar', grupo %></td>
+        <td><%= link_to 'Editar', edit_grupo_path(grupo) if can? :update, grupo %></td>
+        <td><%= link_to 'Eliminar', grupo, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, grupo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Grupo', new_grupo_path if can? :create, Grupo %>

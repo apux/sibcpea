@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  materia: 
+  alumno_ciclo: 
+  parcial1: 9.99
+  parcial2: 9.99
+  parcial3: 9.99
+  final: 9.99
+
+two:
+  materia: 
+  alumno_ciclo: 
+  parcial1: 9.99
+  parcial2: 9.99
+  parcial3: 9.99
+  final: 9.99

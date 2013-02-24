@@ -1,0 +1,50 @@
+<%= form_for(@profesor_materia) do |f| %>
+  <%= render 'shared/error_messages', :target => @profesor_materia, :genero => 'masculino' %>
+
+  <div class="field">
+    <%= f.label :profesor_ciclo_id %><br />
+    <%= f.select :profesor_ciclo_id, ProfesorCiclo.all.collect{|pc| ["#{pc.profesor.nombre_completo} - #{pc.ciclo.clave}", pc.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :materia_id %><br />
+    <%= f.select :materia_id, Materia.all.collect{|m| [m.nombre, m.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :grupo_id %><br />
+    <%= f.select :grupo_id, Grupo.all.collect{|g| [g.nombre, g.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :hora1, 'Lunes' %><br />
+    <%= f.time_select :hora1 %>
+  </div>
+  <div class="field">
+    <%= f.label :hora2, 'Martes' %><br />
+    <%= f.time_select :hora2 %>
+  </div>
+  <div class="field">
+    <%= f.label :hora3, 'Miércoles' %><br />
+    <%= f.time_select :hora3 %>
+  </div>
+  <div class="field">
+    <%= f.label :hora4, 'Jueves' %><br />
+    <%= f.time_select :hora4 %>
+  </div>
+  <div class="field">
+    <%= f.label :hora5, 'Viernes' %><br />
+    <%= f.time_select :hora5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

@@ -1,0 +1,28 @@
+<p>
+  <b>Clave:</b>
+  <%= @ciclo.clave %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @ciclo.tipo %>
+</p>
+
+<p>
+  <b>Fecha inicio:</b>
+  <%= @ciclo.fecha_inicio %>
+</p>
+
+<p>
+  <b>Fecha fin:</b>
+  <%= @ciclo.fecha_fin %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @ciclo.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_ciclo_path(@ciclo) if can? :update, @ciclo %> |
+<%= link_to 'Atrás', ciclos_path %>

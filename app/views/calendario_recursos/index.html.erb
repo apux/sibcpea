@@ -1,0 +1,31 @@
+<h1>Lista de calendarios de recursos</h1>
+
+<table class="titled">
+  <tr>
+    <th>Recurso laboratorio</th>
+    <th>Fecha</th>
+    <th>Hora inicio</th>
+    <th>Hora fin</th>
+    <th>Reservado para</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendario_recursos.each do |calendario_recurso| %>
+  <tr>
+    <td><%= calendario_recurso.recurso_laboratorio.nombre %></td>
+    <td><%= calendario_recurso.fecha %></td>
+    <td><%= calendario_recurso.hora_inicio %></td>
+    <td><%= calendario_recurso.hora_fin %></td>
+    <td><%= calendario_recurso.reservado_para %></td>
+    <td><%= link_to 'Mostrar', calendario_recurso %></td>
+    <td><%= link_to 'Editar', edit_calendario_recurso_path(calendario_recurso) %></td>
+    <td><%= link_to 'Eliminar', calendario_recurso, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Calendario del recurso', new_calendario_recurso_path %>

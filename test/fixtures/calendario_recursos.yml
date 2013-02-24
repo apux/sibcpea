@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  recurso_laboratorio: 
+  fecha_hora: 2011-05-04 23:35:45
+  profesor_materia: 
+  ocupado: false
+
+two:
+  recurso_laboratorio: 
+  fecha_hora: 2011-05-04 23:35:45
+  profesor_materia: 
+  ocupado: false

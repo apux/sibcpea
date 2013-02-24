@@ -1,0 +1,32 @@
+<%= form_for(@aviso) do |f| %>
+  <%= render 'shared/error_messages', :target => @aviso %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+          Texto del aviso
+        </td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :aviso %>:
+        </td>
+        <td class="input">
+          <%= f.text_area :aviso, :size => "50x3" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+

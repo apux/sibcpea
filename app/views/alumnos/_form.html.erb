@@ -1,0 +1,120 @@
+<%= form_for(@alumno) do |f| %>
+  <%= render 'shared/error_messages', :target => @alumno %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del Alumno</td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="name">
+        <%= f.label :matricula %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :matricula %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :nombre %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :nombre %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :apellido_paterno %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :apellido_paterno %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :apellido_materno %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :apellido_materno %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :sexo %>:
+      </td>
+      <td class="field">
+        <%= f.select :sexo, ["H", "M"] %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :correo %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :correo %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :telefono %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :telefono %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :porcentaje_beca, 'Porcentaje de beca' %>:
+      </td>
+      <td class="field">
+        <%= f.select :porcentaje_beca, Alumno::PORCENTAJES_BECA %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :otras_becas %>:
+      </td>
+      <td class="field">
+        <%= f.select :otras_becas, Alumno::OTRAS_BECAS %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :domicilio %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :domicilio %>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        <%= f.label :origen %>:
+      </td>
+      <td class="field">
+        <%= f.text_field :origen %>
+      </td>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

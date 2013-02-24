@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  clave: MyString
+  nombre: MyString
+  creditos: 1
+  programa: MyText
+  semestre: 
+
+two:
+  clave: MyString
+  nombre: MyString
+  creditos: 1
+  programa: MyText
+  semestre: 

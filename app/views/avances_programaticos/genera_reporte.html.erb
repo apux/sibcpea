@@ -1,0 +1,237 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <table style="height:530px; width: 68.86em;" border="0px;" cellspacing="0px;" cellpadding="2px;"  align="center;" bordercolor="black" bgcolor="white">
+      <tr>
+        <td colspan="2" align="center">
+          <%= image_tag 'utm.png', :size => "130x130"%>
+        </td>
+
+        <td style="text-align: center;" colspan="10"><h3> <strong>UNIVERSIDAD TECNOL&#211;GICA DE LA MIXTECA <br> <br> JEFATURA DE INGENIER&Iacute;A INDUSTRIAL <br><br>Avance Program&aacute;tico </strong></h3></td>
+
+      </tr>
+      <tr>
+        <td colspan="11"></td>
+        <td  style="text-align: right;"><strong>JC/F04</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2">REPORTE No.:</td>
+        <td colspan="4">
+          ___________<u><%= @avance_programatico.numero %></u>___________
+        </td>
+        <td>PERIODO: </td>
+        <td  colspan="5">
+          _______<u><%= @avance_programatico.periodo %></u>________
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">PROFESOR:</td>
+        <td colspan="4">
+          _<u><%= @avance_programatico.profesor_materia.profesor.nombre_completo %></u>_
+        </td>
+        <td colspan="6"></td>
+
+      </tr>
+      <tr>
+        <td colspan="2">MATERIA:</td>
+        <td colspan="4">
+          _<u><%= @avance_programatico.profesor_materia.materia.nombre %></u>_
+        </td>
+        <td colspan="6"></td>
+
+      </tr>
+      <tr>
+        <td colspan="2">CARRERA:</td>
+        <td colspan="4">
+          _<u><%= @avance_programatico.carrera.nombre %></u>_
+        </td>
+        <td colspan="6"></td>
+
+      </tr>
+      <tr>
+        <td colspan="2">SEMESTRE:</td>
+        <td colspan="4">
+          _<u><%= @avance_programatico.profesor_materia.materia.semestre.nombre %></u>_
+        </td>
+        <td>FECHA:</td>
+        <td colspan="5">
+          __<u><%= @avance_programatico.fecha %></u>_____
+        </td>
+      </tr>
+      <tr>
+        <td colspan="12"></td>
+      </tr>
+
+      <tr>
+        <td colspan="12">
+          <table style="height: 10px; width: 68.86em; border: 1px solid black; border-collapse: collapse;" align="center;" rules="all"cellpadding="2px;" cellspacing="0px;">
+            <tbody style="font-size:12pt">
+              <tr>
+                <td style="text-align: center; width:80px;"><strong>Unidad <br> y Tema</strong></td>
+                <td colspan="3" style="text-align: center; width:170px;"><strong>Nombre</strong></td>
+                <td style="text-align: center;width:60px;"><strong>Horas<br> Impartidas</strong></td>
+                <td style="text-align: center;width:60px;"><strong>Taxonom&iacute;a</strong></td>
+                <td colspan="4" style="text-align: center;width:180px;"><strong>Objetivo</strong></td>
+                <td colspan="2" style="text-align: center;"><strong>Modalidad de Evaluaci&oacute;n</strong></td>
+              </tr>
+              <% for registro in @avance_programatico.registros_avances_programaticos %>
+                <tr>
+                  <td style="border: 1px solid black; height:20px;">
+                    <%= registro.unidad_tema %>
+                  </td>
+                  <td colspan="3" style="border: 1px solid black; height:20px;">
+                    <%= registro.nombre %>
+                  </td>
+                  <td style="border: 1px solid black; height:20px;">
+                    <%= registro.horas_impartidas %>
+                  </td>
+                  <td style="border: 1px solid black; height:20px;" >
+                    <%= registro.taxonomia %>
+                  </td>
+                  <td colspan="4" style="border: 1px solid black;">
+                    <%= registro.objetivo %>
+                  </td>
+                  <td colspan="2" style="border: 1px solid black; height:20px;">
+                    <%= registro.modalidad_evaluacion %>
+                  </td>
+                </tr>
+              <% end %>
+
+        <% (5 - @avance_programatico.registros_avances_programaticos.count).times do %>
+                <tr>
+                  <td style="border: 1px solid black; height:20px;">
+                  </td>
+                  <td colspan="3" style="border: 1px solid black; height:20px;">
+                  </td>
+                  <td style="border: 1px solid black; height:20px;">
+                  </td>
+                  <td style="border: 1px solid black; height:20px;" >
+                  </td>
+                  <td colspan="4" style="border: 1px solid black;">
+                  </td>
+                  <td colspan="2" style="border: 1px solid black; height:20px;">
+                  </td>
+                </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="12"></td>
+      </tr>
+      <tr>
+        <td colspan="12">Resumen de Avance Program&aacute;tico</td>
+      </tr>
+      <tr>
+        <td colspan="12">
+          <table style="height: 10px; width: 68.86em; border: 1px solid black; border-collapse: collapse;" align="center;" rules="all"cellpadding="2px;" cellspacing="0px;">
+            <tbody style="font-size:12pt">
+              <tr>
+                <td  style="width: 450px;"><strong>REPORTE N&Uacute;MERO</strong></td>
+                <td style="width: 120px; text-align:center;">1</td>
+                <td style="width: 120px; text-align:center;">2</td>
+                <td style="width: 120px; text-align:center;">3</td>
+                <td style="width: 120px; text-align:center;">4</td>
+                <td colspan="4" style="text-align:center;"><strong> TOTAL</strong></td>
+              </tr>
+              <tr>
+                <td style="width: 450px;">Porcentaje de avance del programa por semestre</td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre1 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre2 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre3 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre4 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre_total %>%
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 450px;">Porcentaje de avance por unidad</td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad1 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad2 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad3 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad4 %>%
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad_total %>%
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 450px;">Porcentaje de avance de proyectos por semestre</td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre1 %>
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre2 %>
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre3 %>
+                </td>
+                <td colspan="1">
+                  <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre4 %>
+                </td>
+                <td colspan="1">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="12">
+                  <strong>
+                    Material did&aacute;ctico empleado:
+                  </strong>
+                  <%= @avance_programatico.resumen_avance_programatico.material_didactico_empleado %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="12">
+                  <strong>
+                    Material did&aacute;ctico generado:
+                  </strong>
+                  <%= @avance_programatico.resumen_avance_programatico.material_didactico_generado %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <tr>
+          <td colspan="12"></td>
+        </tr>
+        <tr>
+          <td colspan="12"></td>
+        </tr>
+        <tr>
+          <td colspan="12" style="text-align: center;">Elabor&oacute;:</td>
+        </tr>
+        <tr>
+          <td colspan="12" style="text-align: center;">
+            __________________________________
+            <br />
+            <%= usuario_actual.profesor.nombre_completo %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="12" style="text-align: center;">Nombre y firma del Profesor-Investigador</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
+

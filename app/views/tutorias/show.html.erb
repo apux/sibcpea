@@ -1,0 +1,13 @@
+<p>
+  <b>Profesor:</b>
+  <%= @tutoria.profesor.nombre_completo %>
+</p>
+
+<p>
+  <b>Alumno:</b>
+  <%= @tutoria.alumno.nombre_completo %>
+</p>
+
+
+<%= link_to 'Editar', edit_tutoria_path(@tutoria) if can? :update, @tutoria %> |
+<%= link_to 'Atrás', tutorias_path %>

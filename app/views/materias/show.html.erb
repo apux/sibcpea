@@ -1,0 +1,33 @@
+<p>
+  <b>Clave:</b>
+  <%= @materia.clave %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @materia.nombre %>
+</p>
+
+<p>
+  <b>Creditos:</b>
+  <%= @materia.creditos %>
+</p>
+
+<p>
+  <b>Tipo de asignatura</b>
+  <%= @materia.tipo_asignatura %>
+</p>
+
+<p>
+  <b>Programa:</b>
+  <%= link_to @materia.programa_file_name, @materia.programa.to_s %>
+</p>
+
+<p>
+  <b>Semestre:</b>
+  <%= @materia.semestre.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_materia_path(@materia) %> |
+<%= link_to 'Atrás', materias_path %>

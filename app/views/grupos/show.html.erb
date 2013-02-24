@@ -1,0 +1,27 @@
+<p>
+<b>Nombre:</b>
+<%= @grupo.nombre %>
+</p>
+
+<p>
+<b>Semestre:</b>
+<%= @grupo.semestre.nombre %>
+</p>
+
+<p>
+<b>Descripción:</b>
+<%= @grupo.descripcion %>
+</p>
+
+<p>
+<b>Alumnos:</b>
+<ul>
+  <% Alumno.inscritos_ciclo_actual.where("alumnos_ciclos.grupo_id" => @grupo.id).each do |alumno| %>
+    <li><%= alumno.nombre_completo %></li>
+  <% end %>
+</ul>
+</p>
+
+
+<%= link_to 'Editar', edit_grupo_path(@grupo) if can? :update, @grupo %> |
+<%= link_to 'Atrás', grupos_path %>

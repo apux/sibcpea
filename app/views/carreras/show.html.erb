@@ -1,0 +1,18 @@
+<p>
+  <b>Nombre:</b>
+  <%= @carrera.nombre %>
+</p>
+
+<p>
+  <b>Clave:</b>
+  <%= @carrera.clave %>
+</p>
+
+<p>
+  <b>Descripción:</b>
+  <%= @carrera.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_carrera_path(@carrera) if can? :update, @carrera %> |
+<%= link_to 'Atrás', carreras_path %>

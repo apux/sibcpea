@@ -1,0 +1,31 @@
+<h1>Lista de semestres</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @semestres.each do |semestre| %>
+      <tr>
+        <td><%= semestre.numero %></td>
+        <td><%= semestre.nombre %></td>
+        <td><%= semestre.descripcion %></td>
+        <td><%= link_to 'Mostrar', semestre %></td>
+        <td><%= link_to 'Editar', edit_semestre_path(semestre) if can? :update, semestre %></td>
+        <td><%= link_to 'Eliminar', semestre, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, semestre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Semestre', new_semestre_path if can? :create, Semestre %>

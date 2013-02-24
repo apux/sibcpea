@@ -1,0 +1,160 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+
+    <table style="height: 130px; width: 850px;" border="0px;" cellspacing="0px;" cellpadding="2px;"  align="center;" bordercolor="#c0c0c0">
+      <tbody style="font-size: 11pt">
+        <tr>
+          <td style="border:1px solid black; width:150px;" align="center" rowspan="2">
+            <%= image_tag 'utm.png', :size => "130x130"%>
+          </td>
+          <td style="text-align: center; border:1px solid black;" colspan="3"><h3>
+              <strong>
+                UNIVERSIDAD TECNOLOGICA DE LA MIXTECA
+                <br />
+                LISTA DE CALIFICACIONES         GRUPO: 
+                <%= @grupo.nombre %>
+              </strong>
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <table style="width: 700px; height:70px; border:0px solid black; border-collapse:collapse;"  cellspacing="0px;" cellpadding="2px;" align="center;">
+              <tbody style="font-size:10pt">
+                <tr>
+                  <td style="width: 500px; border-top:1px solid black; border-left:1px solid black;" colspan="2">
+                    <strong>
+                      PROFESOR:____<u><%= usuario_actual.profesor.nombre_completo %></u>__
+                    </strong>
+                  </td>
+                  <td style="width: 350px; border-top: 1px solid black; border-right:1px solid black;">
+                    <strong>
+                      MATERIA:_<u><%= @materia.nombre %></u>__
+                    </strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 233px; border-bottom:1px solid black; border-left:1px solid black;">
+                    <strong>
+                      EXAMEN:_<u><%= @examen %></u>_
+                    </strong>
+                  </td>
+                  <td style="width: 233px; border-bottom:1px solid black;">
+                    <strong>
+                      APLICACI&#211;N:_<u><%= l @fecha_aplicacion, :format => :default %></u>_
+                    </strong>
+                  </td>
+                  <td style="width: 233px; border-bottom:1px solid black; border-right:1px solid black;">
+                    <strong>
+                      ENTREGA:__<u><%= l @fecha_entrega, :format => :default %></u>__
+                    </strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <table style="height:50px; width: 850px; border:0px solid black; border-collapse:collapse;"  cellspacing="0px;" cellpadding="2px;" align="center;">
+              <tbody style="font-size:11pt">
+                <tr>
+                  <td bgcolor="#adadad"style="text-align: center; width: 50px;"><strong>N&#218;M.</strong></td>
+                  <td bgcolor="#adadad"style="text-align: center; width: 100px;"><strong>MATR&#205;CULA</strong></td>
+                  <td bgcolor="#adadad"style="text-align: center; width: 380px;"><strong>NOMBRE</strong></td>
+                  <td bgcolor="#adadad"style="text-align: center; width: 100px;"><strong>CALIFICACI&#211;N</strong></td>
+                  <td bgcolor="#adadad"style="text-align: center; width: 220px;"><strong>CALIFICACI&#211;N CON LETRA</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="5">
+                    <table style="height:230px; width: 850px; border:1px solid black; border-collapse:collapse;"  cellspacing="0px;" cellpadding="1px;" align="center;">
+
+
+                      <tbody style="font-size:11pt">
+                        <% contador = 0 %>
+                        <% @calificaciones.each do |calificacion| %>
+                          <% contador += 1 %>
+                          <% calificacion_especifica = calificacion.obtener_calificacion @examen %>
+                          <tr>
+                            <td style="border-bottom:1px solid black; width: 50px;">
+                              <%= contador %>
+                            </td>
+                            <td style="border-bottom:1px solid black; width: 100px;">
+                              <%= calificacion.alumno_ciclo.alumno.matricula %>
+                            </td>
+                            <td style="border-bottom:1px solid black; width: 380px;">
+                              <%= calificacion.alumno_ciclo.alumno.nombre_completo %>
+                            </td>
+                            <td style="border:1px solid black; width: 100px; text-align: center;">
+                            <%= calificacion_especifica.class.name.to_s == "String" ? "0.0" : calificacion_especifica %>
+                            </td>
+                            <td style="border-bottom:1px solid black;  width: 220px;">
+                              <% if calificacion_especifica.class.name.to_s == "String" %>
+                                <%= calificacion_especifica %>
+                              <% else %>
+                                <%= convierte_numero_a_palabras(calificacion.obtener_calificacion(@examen)) %>
+                              <% end %>
+                            </td>
+                          </tr>
+                        <% end %>
+                        <% if @calificaciones.length < 10 %>
+                          <% ((@calificaciones.length + 1)..10).each do |i|%>
+                            <tr>
+                              <td style="border-bottom:1px solid black; width: 50px;">
+                              </td>
+                              <td style="border-bottom:1px solid black; width: 100px;">
+                                &nbsp;
+                              </td>
+                              <td style="border-bottom:1px solid black; width: 380px;">
+                                &nbsp;
+                              </td>
+                              <td style="border:1px solid black; width: 100px;">
+                                &nbsp;
+                              </td>
+                              <td style="border-bottom:1px solid black; width: 220px;">
+                                &nbsp;
+                              </td>
+                            </tr>
+                          <% end %>
+                        <% end %>
+
+                      </tbody>
+
+                    </table>
+                  </td>
+                </tr>
+                <br>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <table style="width:850px;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="opx;">
+      <tbody style="font-size:11pt">
+        <tr>
+          <td style="text-align: center;">
+            ________________________________________________
+            <br />
+            <%= usuario_actual.profesor.nombre_completo %>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center;" font-size="10pt;">FIRMA DEL PROFESOR-INVESTIGADOR</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>

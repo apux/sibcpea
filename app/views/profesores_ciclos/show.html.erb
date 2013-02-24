@@ -1,0 +1,55 @@
+<p>
+<b>Ciclo:</b>
+<%= @profesor_ciclo.ciclo.clave %>
+</p>
+
+<p>
+<b>Profesor:</b>
+<%= @profesor_ciclo.profesor.nombre_completo %>
+</p>
+
+<p>
+<b>Horario lunes:</b>
+<%= @profesor_ciclo.horario1_lunes %>
+<%= @profesor_ciclo.horario2_lunes %>
+</p>
+<p>
+<b>Horario martes:</b>
+<%= @profesor_ciclo.horario1_martes %>
+<%= @profesor_ciclo.horario2_martes %>
+</p>
+<p>
+<b>Horario miércoles:</b>
+<%= @profesor_ciclo.horario1_miercoles %>
+<%= @profesor_ciclo.horario2_miercoles %>
+</p>
+<p>
+<b>Horario jueves:</b>
+<%= @profesor_ciclo.horario1_jueves %>
+<%= @profesor_ciclo.horario2_jueves %>
+</p>
+<p>
+<b>Horario viernes:</b>
+<%= @profesor_ciclo.horario1_viernes %>
+<%= @profesor_ciclo.horario2_viernes %>
+</p>
+
+
+<p>
+<b>Materias asignadas para este ciclo:</b><br/>
+<% @profesor_ciclo.profesores_materias.each do |pm| %>
+  Grupo: <%= pm.grupo.nombre %><br/>
+  Materia: <%= pm.materia.nombre %><br/>
+  Aula: <%= pm.aula.nombre if pm.aula %><br/>
+  Hora lunes: <%= pm.hora1 %><br/>
+  Hora martes: <%= pm.hora2 %><br/>
+  Hora miercoles: <%= pm.hora3 %><br/>
+  Hora jueves: <%= pm.hora4 %><br/>
+  Hora viernes: <%= pm.hora5 %><br/>
+  <br/>
+<% end %>
+</p>
+
+
+<%= link_to 'Editar', edit_profesor_ciclo_path(@profesor_ciclo) %> |
+<%= link_to 'Atrás', profesores_ciclos_path %>

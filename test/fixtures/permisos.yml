@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  permiso: MyString
+  tipo: MyString
+
+two:
+  permiso: MyString
+  tipo: MyString

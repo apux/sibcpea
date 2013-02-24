@@ -1,0 +1,83 @@
+<%= form_for(@materia, :html => { :multipart => true }) do |f| %>
+  <%= render 'shared/error_messages', :target => @materia %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos de la materia</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr> 
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </td>
+        </tr>
+        <tr>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :clave %>:
+        </td>
+        <td>
+          <%= f.text_field :clave %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :nombre %>:
+        </td>
+        <td>
+          <%= f.text_field :nombre %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :creditos %>:
+        </td>
+        <td>
+          <%= f.text_field :creditos %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :tipo_asignatura, 'Tipo de asignatura' %>:
+        </td>
+        <td>
+          <%= f.text_field :tipo_asignatura %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :programa %>:
+        </td>
+        <td>
+          <%= f.file_field :programa %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :semestre_id %>:
+        </td>
+        <td>
+          <%= f.select :semestre_id, Semestre.all.collect{|s| [s.nombre, s.id]} %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tutoria: 
+  fecha: 2011-03-31
+  tiempo: 1.5
+  asunto: MyString
+  compromiso: MyString
+
+two:
+  tutoria: 
+  fecha: 2011-03-31
+  tiempo: 1.5
+  asunto: MyString
+  compromiso: MyString

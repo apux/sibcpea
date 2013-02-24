@@ -1,0 +1,10 @@
+inicio
+ejecutar
+cmd
+cd escritorio
+cd sibcpea
+rails server
+entrar a firefox
+http://localhost:3000/
+se inicia el sistema
+

@@ -1,0 +1,23 @@
+<p>
+  <b>Fecha:</b>
+  <%= @asesoria.fecha %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @asesoria.nombre %>
+</p>
+
+<p>
+  <b>Código:</b>
+  <%= @asesoria.codigo %>
+</p>
+
+<p>
+  <b>Tema:</b>
+  <%= @asesoria.tema %>
+</p>
+
+
+<%= link_to 'Editar', edit_asesoria_path(@asesoria) %> |
+<%= link_to 'Atrás', asesorias_path %>

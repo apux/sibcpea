@@ -1,0 +1,79 @@
+<p>
+<b>Numero:</b>
+<%= @avance_programatico.numero %>
+</p>
+
+<p>
+<b>Profesor materia:</b>
+<%= @avance_programatico.profesor_materia.materia.nombre %>
+</p>
+
+<p>
+<b>Carrera:</b>
+<%= @avance_programatico.carrera.nombre %>
+</p>
+
+<p>
+<b>Fecha:</b>
+<%= @avance_programatico.fecha.to_s %>
+</p>
+
+<p>
+<b>Periodo:</b>
+<%= @avance_programatico.periodo %>
+</p>
+
+<p>
+<b>Porcentaje de avance del programa por semestre:</b>
+1: <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre1 %>%
+2: <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre2 %>%
+3: <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre3 %>%
+4: <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre4 %>%
+total: <%= @avance_programatico.resumen_avance_programatico.porcentaje_programa_semestre_total %>%
+</p>
+
+<p>
+<b>Porcentaje de avance por unidad:</b>
+1: <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad1 %>%
+2: <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad2 %>%
+3: <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad3 %>%
+4: <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad4 %>%
+total: <%= @avance_programatico.resumen_avance_programatico.porcentaje_unidad_total %>%
+</p>
+
+<p>
+<b>Porcentaje de avance del proyecto por semestre:</b>
+1: <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre1 %>%
+2: <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre2 %>%
+3: <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre3 %>%
+4: <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre4 %>%
+total: <%= @avance_programatico.resumen_avance_programatico.porcentaje_proyecto_semestre_total %>%
+</p>
+
+<p>
+<b>Material didáctico empleado:</b>
+<%= @avance_programatico.resumen_avance_programatico.material_didactico_empleado %>
+</p>
+
+<p>
+<b>Material didáctico generado:</b>
+<%= @avance_programatico.resumen_avance_programatico.material_didactico_generado %>
+</p>
+
+<b>Registros:</b>
+<hr />
+<% for registro in @avance_programatico.registros_avances_programaticos %>
+  <p>
+  Unidad o tema: <%= registro.unidad_tema %><br />
+  Nombre: <%= registro.nombre %><br />
+  Horas impartidas: <%= registro.horas_impartidas %><br />
+  Taxonomía: <%= registro.taxonomia %><br />
+  Objetivo: <%= registro.objetivo %><br />
+  Modalidad de evaluación: <%= registro.modalidad_evaluacion %>
+  </p>
+  <hr />
+<% end %>
+
+
+<%= link_to 'Editar', edit_avance_programatico_path(@avance_programatico) %> |
+<%= link_to 'Atrás', avances_programaticos_path %>

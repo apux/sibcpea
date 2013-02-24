@@ -1,0 +1,33 @@
+<h1>Lista de asesorias</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Nombre</th>
+      <th>Código</th>
+      <th>Tema</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asesorias.each do |asesoria| %>
+      <tr>
+        <td><%= asesoria.fecha %></td>
+        <td><%= asesoria.nombre %></td>
+        <td><%= asesoria.codigo %></td>
+        <td><%= asesoria.tema %></td>
+        <td><%= link_to 'Mostrar', asesoria %></td>
+        <td><%= link_to 'Editar', edit_asesoria_path(asesoria) if can? :update, asesoria %></td>
+        <td><%= link_to 'Eliminar', asesoria, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, asesoria%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Asesoria', new_asesoria_path if can? :create, Asesoria %>

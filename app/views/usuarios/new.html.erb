@@ -1,0 +1,67 @@
+<%= form_for @usuario do |f| %>
+  <%= render 'shared/error_messages', :target => @usuario %>
+
+  <table class="form">
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :login, 'Nombre de usuario' %>:
+        </td>
+        <td>
+          <%= f.text_field :login %>
+        </td>
+      </tr>
+      <tr>
+        <td class="passwd">
+          <%= f.label :password %>:
+        </td>
+        <td>
+          <%= f.password_field :password %>
+        </td>
+      </tr>
+      <tr>
+        <td class="passwd">
+          <%= f.label :password_confirmation, 'Confirmación de password' %>:
+        </td>
+        <td>
+          <%= f.password_field :password_confirmation %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :permiso_id, 'Tipo de usuario' %>:
+        </td>
+        <td>
+          <%= f.select :permiso_id, Permiso.all.collect{|p| [p.descripcion, p.id]}, {}, :onchange => "mostrar_profesor(this)" %>
+        </td>
+      </tr>
+      <tr id="profesor" style="display:none">
+        <td class="name">
+          <%= f.label :profesor_id %>:
+        </td>
+        <td>
+          <%= f.select :profesor_id, Profesor.all.collect{|p| [p.nombre_completo, p.id]}, {:prompt => "Seleccione un profesor..."} %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+<script type="text/javascript">
+  mostrar_profesor('usuario_permiso_id');
+
+  function mostrar_profesor(element) {
+  if($(element).value == '1' || $(element).value == '2')
+  $('profesor').show(); 
+  else 
+    $('profesor').hide();
+  }
+</script>

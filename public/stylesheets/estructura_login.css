@@ -1,0 +1,143 @@
+* {font-family:sans-serif; padding:0px; margin:0px;}
+
+body
+{
+  background:url(../images/loginbg.jpg) no-repeat center top;	
+
+}
+
+#header_login {
+  background: transparent url(../images/bg_login.png) no-repeat top center !important ;
+  min-height:305px;
+  margin:0px;
+}
+
+#bglogin_content {
+  margin: 0px auto;
+  padding-top:0px!important;
+  width: auto;
+  height:auto;
+  background: url(../images/bg_footer_login.jpg) no-repeat top center !important ;
+  overflow:visible;
+  margin-bottom: 30px;
+}	
+#login_content {
+  margin: 0px auto;
+  width: 552px;
+  height:205px!important;
+  text-align: center;
+  padding-top:50px;
+  padding-left:50px;
+  padding-right:0px;
+  color:#fff;
+  font-size:12px!important;
+  text-align: center;
+}
+table.form{width:452px;}
+table.form tr td.name{
+
+  background: url(../images/usser.png) no-repeat left center;
+  height:28px;
+  border-width: 0px;
+
+}
+.form p
+{padding-left: 20px;padding-top:6px;padding-right:20px;}
+
+table.form tr td.passwd{
+
+  background: url(../images/pass.png) no-repeat left center;
+  height:25px;
+  border-width:0px; 
+}
+table.form tr td.input{
+  width:auto;
+  padding-top:6px;
+  text-align: left;
+  height:30px!important; 
+
+}
+table.form input {
+  color:#555559;
+  background:#fff;
+  border:2px solid #9a999a;
+}
+
+.okbutton input {
+  background:url(../images/aceptar.png) no-repeat right top ;
+  padding-top:0px;
+
+  cursor:pointer;
+  width: 90px;
+  height: 34px;
+  border: none;
+
+}
+.okbutton input:hover{
+  background:url(../images/aceptar_hvr.png) no-repeat right top;
+  cursor:pointer;
+  width: 90px;
+  height: 34px;
+  border: none;
+
+}
+
+
+#footer_login {
+  background:url(../images/footer_login.png) no-repeat center bottom;
+  position:absolute; 
+  position:fixed; 
+  bottom:0px!important; 
+  margin:0px;
+  width:100%;
+  text-align: center;
+  padding-top:10px!important;
+  color:#fff;
+  font-size:11px!important;
+  text-align: center;
+}
+
+
+#flashalert {
+  color: #E20505;
+  background-color: #CECAC6;
+  border: solid 1px #E20505;
+  padding: 7px;
+}
+
+#flashnotice {
+  color: #005C7C;
+  background-color: #CECAC6;
+  border: solid 1px #005C7C;
+  padding: 7px;
+}
+
+label.field_with_errors {
+  padding: 2px;
+  color: red;
+}
+
+#error_explanation {
+  width: 550px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

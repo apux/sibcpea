@@ -1,0 +1,31 @@
+<div style="padding-top: 30px; margin: 0 150px 0 150px;">
+  <div style="background-color: #677; border-radius:10px;">
+    <p style="text-align:left">
+    <b><%= @comentario.aviso.aviso %></b>
+    </p>
+    <p style="text-align:right; padding-right:10px">
+    <% if @comentario.aviso.usuario.profesor %>
+      <%= @comentario.aviso.usuario.profesor.nombre_completo %>
+    <% else %>
+      <%= @comentario.aviso.usuario.login %>
+    <% end %>
+    </p>
+  </div>
+  <% @comentario.aviso.comentarios.each do |comentario| %>
+    <div style="border-radius:10px; border-bottom: solid 1px">
+      <p style="text-align:left">
+      <%= comentario.comentario %>
+      </p>
+      <p style="text-align:right; padding-right:10px">
+      <% if comentario.usuario.profesor %>
+        <%= comentario.usuario.profesor.nombre_completo %>
+      <% else %>
+        <%= comentario.usuario.login %>
+      <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>
+<%= render 'form' %>
+
+<%= link_to 'Atrás', aviso_comentarios_path %>

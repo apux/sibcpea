@@ -1,0 +1,55 @@
+<div class="fields" style="border-bottom: 1px solid;">
+  <div class="field">
+    <%= f.label :materia_id, 'Materia' %>:
+    <%= f.select :materia_id, @materias.collect { |m| [m.nombre, m.id] } %>
+  </div>
+  <div class="field">
+    <%= f.label :grupo, 'Grupo' %>:
+    <%= f.select :grupo_id, @grupos.collect { |g| [g.nombre, g.id] } %>
+  </div>
+  <div class="field">
+    <%= f.label :aula_id, 'Aula' %>:
+    <%= f.select :aula_id, @aulas.collect { |a| [a.nombre, a.id] } %>
+  </div>
+  Horario:
+  <table>
+    <tr>
+      <td class="field">
+        <%= f.label :hora1, 'Lunes' %>:
+      </td>
+      <td class="field">
+        <%= f.label :hora2, 'Martes' %>:
+      </td>
+      <td class="field">
+        <%= f.label :hora3, 'Miércoles' %>:
+      </td>
+      <td class="field">
+        <%= f.label :hora4, 'Jueves' %>:
+      </td>
+      <td class="field">
+        <%= f.label :hora5, 'Viernes' %>:
+      </td>
+    </tr>
+    <tr>
+      <td class="field">
+        <%= f.text_field :hora1, :size => 10 %>
+      </td>
+      <td class="field">
+        <%= f.text_field :hora2, :size => 10 %>
+      </td>
+      <td class="field">
+        <%= f.text_field :hora3, :size => 10 %>
+      </td>
+      <td class="field">
+        <%= f.text_field :hora4, :size => 10 %>
+      </td>
+      <td class="field">
+        <%= f.text_field :hora5, :size => 10 %>
+      </td>
+    </tr>
+  </table>
+  <div style="text-align:right">
+    <%= link_to_remove 'Desasignar esta materia', f %>
+  </div>
+</div>
+<br />

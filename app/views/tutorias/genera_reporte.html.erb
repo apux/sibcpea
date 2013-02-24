@@ -1,0 +1,126 @@
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+
+    <table style="height: 120px; width: 1200px;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="0px;">
+
+      <thead>
+        <tr>
+          <th>
+            <%= image_tag 'utm.png', :size => "100x100"%>
+          </th>
+          <th style="text-align: center; font-size:16pt" colspan="13"><h4> <strong>UNIVERSIDAD TECNOLÓGICA DE LA MIXTECA <br> <br> JEFATURA DE INGENIERIA INDUSTRIAL <br><br> SEGUIMIENTO DE SESIONES DE TUTORIA </strong></h4>
+          </th>
+
+        </tr>
+      </thead>
+      <table style="height: 80px; width: 1200px;" align="center;" bgcolor="white" border="0px;"cellpadding="2px;" cellspacing="0px;">
+        <tr>
+          <tbody style="font-size:12pt">
+            <tr>
+              <td colspan="7">
+                TUTOR:___<u><%= usuario_actual.profesor.nombre_completo %></u>__
+              </td>
+
+              <td colspan="2">
+                PERIODO: 2011-A
+              </td>
+              <td></td>
+              <td></td>
+              <td colspan="3">
+                MES:__<u><%= l(@fecha_inicial, :format => "%B").upcase %></u>___
+              </td>
+            </tr>
+            <tr>
+              <td colspan="14"></td>
+            </tr>
+          </tr>
+        </table>
+        <tr>
+          <td colspan="14">
+
+            <table style="height: 480px; width: 1200px; border: 0px;  border-collapse: collapse;" align="center;" cellpadding="2px;" cellspacing="opx;">
+              <tbody style="font-size:12pt">
+                <tr>
+                  <td colspan="4" style="text-align: center; border-bottom:1px solid black;"></td>
+                  <td colspan="2" style="text-align: center; border-bottom:1px solid black;border-top:1px solid black; border-right:1px solid black; border-left:1px solid black;"><strong>SESION</strong></td>
+                  <td colspan="8"  style="text-align: center; border-bottom:1px solid black;"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align: center; border-right:1px solid black;border-left:1px solid black;"><strong>TUTORADO</strong></td>
+                  <td style="text-align: center; border-right:1px solid black;"><strong>SEMESTRE</strong></td>
+                  <td style="text-align: center; border-right:1px solid black;"><strong>FECHA</strong></td>
+                  <td style="text-align: center; border-right:1px solid black;"><strong>TIEMPO</strong></td>
+                  <td colspan="4" style="text-align: center; border-right:1px solid black;"><strong>ASUNTO TRATADO</strong></td>
+                  <td colspan="4" style="text-align: center; border-right:1px solid black;"><strong>COMPROMISO</strong></td>
+                </tr>
+                <% @tutorias.each do |tutoria| %>
+                  <tr>
+                    <td colspan="3" style="border:1px solid black;">
+                      <%= tutoria.tutoria.alumno.nombre_completo %>
+                    </td>
+                    <td style="border:1px solid black;">
+                      <%= AlumnoCiclo.where(:ciclo_id => Ciclo.actual, :alumno_id => tutoria.tutoria.alumno_id).first.grupo.semestre.nombre %>
+                    </td>
+                    <td style="border:1px solid black;">
+                      <%= l tutoria.fecha, :format => :default %>
+                    </td>
+                    <td style="border:1px solid black;">
+                      <%= tutoria.tiempo %>
+                    </td>
+                    <td colspan="4" style="border:1px solid black;">
+                      <%= tutoria.asunto %>
+                    </td>
+                    <td colspan="4" style="border:1px solid black;">
+                      <%= tutoria.compromiso %>
+                    </td>
+                  </tr>
+
+                <% end %>
+                <% if @tutorias.size < 12 %>
+                  <% (12 - @tutorias.size).times do %>
+                    <tr>
+                      <td colspan="3" style="border: 1px solid black;">&nbsp;</td>
+                      <td style="border: 1px solid black;">&nbsp;</td>
+                      <td style="border: 1px solid black;">&nbsp;</td>
+                      <td style="border: 1px solid black;">&nbsp;</td>
+                      <td colspan="4" style="border: 1px solid black;">&nbsp;</td>
+                      <td colspan="4" style="border: 1px solid black;">&nbsp;</td>
+                    </tr>
+                  <% end %>
+                <% end %>
+
+              </tbody>
+            </table>
+          </td>
+          </tr><tr>
+          <td colspan="14"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <table style="width: 1200px;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="0px;">
+      <tbody style="font-size:11pt">
+        <tr>
+          <td style="text-align: center;">
+            ________________________________________________
+            <br>
+            <%= usuario_actual.profesor.nombre_completo %>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center;" font-size="10pt;">NOMBRE Y FIRMA DEL PROFESOR-INVESTIGADOR</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+</body></html>
+

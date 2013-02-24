@@ -1,0 +1,27 @@
+<p>
+  <b>Recurso laboratorio:</b>
+  <%= @calendario_recurso.recurso_laboratorio.nombre %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @calendario_recurso.fecha %>
+</p>
+
+<p>
+  <b>Hora inicio:</b>
+  <%= @calendario_recurso.hora_inicio %>
+</p>
+
+<p>
+  <b>Hora fin:</b>
+  <%= @calendario_recurso.hora_fin %>
+</p>
+
+<p>
+  <b>Reservado para:</b>
+  <%= @calendario_recurso.reservado_para %>
+</p>
+
+<%= link_to 'Editar', edit_calendario_recurso_path(@calendario_recurso) %> |
+<%= link_to 'Atrás', calendario_recursos_path %>

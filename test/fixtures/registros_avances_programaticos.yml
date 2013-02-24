@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  avance_programatico: 
+  unidad_tema: MyString
+  nombre: MyString
+  horas_impartidas: 1.5
+  taxonomía: MyString
+  objetivo: MyString
+  modalidad_evaluacion: MyString
+
+two:
+  avance_programatico: 
+  unidad_tema: MyString
+  nombre: MyString
+  horas_impartidas: 1.5
+  taxonomía: MyString
+  objetivo: MyString
+  modalidad_evaluacion: MyString

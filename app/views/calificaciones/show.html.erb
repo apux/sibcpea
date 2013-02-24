@@ -1,0 +1,75 @@
+<p>
+<b>Materia:</b>
+<%= @calificacion.materia.nombre %>
+</p>
+
+<p>
+<b>Alumno:</b>
+<%= @calificacion.alumno.nombre_completo %>
+</p>
+
+<p>
+<b>Parcial1:</b>
+<% if @calificacion.parcial1 and (@calificacion.parcial1 > 0.0 or @calificacion.motivo_parcial1 == "Calificación obtenida") %>
+  <%= @calificacion.parcial1 %>
+<% else %>
+  <%= @calificacion.motivo_parcial1 %>
+<% end %>
+</p>
+
+<p>
+<b>Parcial2:</b>
+<% if @calificacion.parcial2 and (@calificacion.parcial2 > 0.0 or @calificacion.motivo_parcial2 == "Calificación obtenida") %>
+  <%= @calificacion.parcial2 %>
+<% else %>
+  <%= @calificacion.motivo_parcial2 %>
+<% end %>
+</p>
+
+<p>
+<b>Parcial3:</b>
+<% if @calificacion.parcial3 and (@calificacion.parcial3 > 0.0 or @calificacion.motivo_parcial3 == "Calificación obtenida") %>
+  <%= @calificacion.parcial3 %>
+<% else %>
+  <%= @calificacion.motivo_parcial3 %>
+<% end %>
+</p>
+
+<p>
+<b>Ordinario:</b>
+<% if @calificacion.ordinario and (@calificacion.ordinario > 0.0 or @calificacion.motivo_ordinario == "Calificación obtenida") %>
+  <%= @calificacion.ordinario %>
+<% else %>
+  <%= @calificacion.motivo_ordinario %>
+<% end %>
+</p>
+
+<p>
+<b>Extra1:</b>
+<% if @calificacion.extra1 and (@calificacion.extra1 > 0.0 or @calificacion.motivo_extra1 == "Calificación obtenida") %>
+  <%= @calificacion.extra1%>
+<% else %>
+  <%= @calificacion.motivo_extra1%>
+<% end %>
+</p>
+
+<p>
+<b>Extra2:</b>
+<% if @calificacion.extra2 and (@calificacion.extra2 > 0.0 or @calificacion.motivo_extra2 == "Calificación obtenida") %>
+  <%= @calificacion.extra2 %>
+<% else %>
+  <%= @calificacion.extra2 %>
+<% end %>
+</p>
+
+<p>
+<b>Especial:</b>
+<% if @calificacion.especial and (@calificacion.especial > 0.0 or @calificacion.motivo_especial == "Calificación obtenida") %>
+  <%= @calificacion.especial %>
+<% else %>
+  <%= @calificacion.motivo_especial %>
+<% end %>
+</p>
+
+<%= link_to 'Editar', edit_calificacion_path(@calificacion) %> |
+<%= link_to 'Atrás', calificaciones_path %>

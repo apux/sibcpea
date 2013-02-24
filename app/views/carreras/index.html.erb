@@ -1,0 +1,31 @@
+<h1>Lista de carreras</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Clave</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carreras.each do |carrera| %>
+      <tr>
+        <td><%= carrera.clave %></td>
+        <td><%= carrera.nombre %></td>
+        <td><%= carrera.descripcion %></td>
+        <td><%= link_to 'Mostrar', carrera %></td>
+        <td><%= link_to 'Editar', edit_carrera_path(carrera) if can? :update, carrera%></td>
+        <td><%= link_to 'Eliminar', carrera, :confirm => '¿Estaá usted seguro?', :method => :delete if can? :destroy, carrera %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Carrera', new_carrera_path if can? :create, Carrera%>

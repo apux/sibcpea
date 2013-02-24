@@ -1,0 +1,147 @@
+<%= form_for(@avance_programatico) do |f| %>
+  <%= render 'shared/error_messages', :target => @avance_programatico %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del avance programático</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :numero %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :numero, :size => 5 %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :profesor_materia_id, 'Materia' %>:
+        </td>
+        <td class="input">
+          <%= f.select :profesor_materia_id, @profesores_materias.collect{|pm| [pm.materia.nombre, pm.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :carrera_id %>:
+        </td>
+        <td class="input">
+          <%= f.select :carrera_id, Carrera.all.map{|c| [c.nombre, c.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :fecha %>:
+        </td>
+        <td class="input">
+          <%= f.date_select :fecha %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :periodo %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :periodo %>
+        </td>
+      </tr>
+      <% @avance_programatico.resumen_avance_programatico ||= ResumenAvanceProgramatico.new %>
+      <tr>
+        <td class="name">
+          Porcentaje de avance del programa por semestre: 
+        </td>
+        <td class="input">
+          <%= f.fields_for :resumen_avance_programatico do |rap_form| %>
+            <%= rap_form.label :porcentaje_programa_semestre1, '1:' %>
+            <%= rap_form.text_field :porcentaje_programa_semestre1, :size => 5 %>
+            <%= rap_form.label :porcentaje_programa_semestre2, '2:' %>
+            <%= rap_form.text_field :porcentaje_programa_semestre2, :size => 5 %>
+            <%= rap_form.label :porcentaje_programa_semestre3 , '3:' %>
+            <%= rap_form.text_field :porcentaje_programa_semestre3, :size => 5 %>
+            <%= rap_form.label :porcentaje_programa_semestre4 , '4:' %>
+            <%= rap_form.text_field :porcentaje_programa_semestre4, :size => 5 %>
+            <%= rap_form.label :porcentaje_programa_semestre_total , 'total:' %>
+            <%= rap_form.text_field :porcentaje_programa_semestre_total, :size => 5 %>
+          </td>
+        </tr>
+        <tr>
+          <td class="name">
+            Porcentaje de avance por unidad: 
+          </td>
+          <td class="input">
+            <%= rap_form.label :porcentaje_unidad1, '1:' %>
+            <%= rap_form.text_field :porcentaje_unidad1, :size => 5 %>
+            <%= rap_form.label :porcentaje_unidad2, '2:' %>
+            <%= rap_form.text_field :porcentaje_unidad2, :size => 5 %>
+            <%= rap_form.label :porcentaje_unidad3 , '3:' %>
+            <%= rap_form.text_field :porcentaje_unidad3, :size => 5 %>
+            <%= rap_form.label :porcentaje_unidad4 , '4:' %>
+            <%= rap_form.text_field :porcentaje_unidad4, :size => 5 %>
+            <%= rap_form.label :porcentaje_unidad_total , 'total:' %>
+            <%= rap_form.text_field :porcentaje_unidad_total, :size => 5 %>
+          </td>
+        </tr>
+        <tr>
+          <td class="name">
+            Porcentaje de avance del programa por proyecto:
+          </td>
+          <td class="input">
+            <%= rap_form.label :porcentaje_proyecto_semestre1, '1:' %>
+            <%= rap_form.text_field :porcentaje_proyecto_semestre1, :size => 5 %>
+            <%= rap_form.label :porcentaje_proyecto_semestre2, '2:' %>
+            <%= rap_form.text_field :porcentaje_proyecto_semestre2, :size => 5 %>
+            <%= rap_form.label :porcentaje_proyecto_semestre3 , '3:' %>
+            <%= rap_form.text_field :porcentaje_proyecto_semestre3, :size => 5 %>
+            <%= rap_form.label :porcentaje_proyecto_semestre4 , '4:' %>
+            <%= rap_form.text_field :porcentaje_proyecto_semestre4, :size => 5 %>
+            <%= rap_form.label :porcentaje_proyecto_semestre_total , 'total:' %>
+            <%= rap_form.text_field :porcentaje_proyecto_semestre_total, :size => 5 %>
+          </td>
+        </tr>
+        <tr>
+          <td class="name"> 
+            <%= rap_form.label :material_didactico_empleado, 'Material didáctico empleado' %>:
+          </td>
+          <td class="input">
+            <%= rap_form.text_field :material_didactico_empleado %>
+          </td>
+        </tr>
+        <tr>
+          <td class="name"> 
+            <%= rap_form.label :material_didactico_generado, 'Material didáctico generado' %>:
+          </td>
+          <td class="input">
+            <%= rap_form.text_field :material_didactico_generado %>
+          </td>
+        </td>
+      <% end %>
+      <tr>
+        <td class="name">
+          Registros:
+        </td>
+        <td class="input">
+          <div class="registros" style="padding-left:50px">
+            <%= f.fields_for :registros_avances_programaticos do |rap_form| %> 
+              <%= render 'registro_avance_programatico_fields', :f => rap_form %>
+            <% end %>
+            <div>
+              <%= link_to_create "Agregar registro de avance programático", RegistroAvanceProgramatico.new, f %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

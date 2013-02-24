@@ -1,0 +1,46 @@
+<%= form_tag lista_asistencia_grupos_path do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+          Seleccione los datos necesarios
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          Grupo: 
+        </td>
+        <td class="input">
+          <%= select_tag :grupo_id, options_from_collection_for_select(@grupos, "id", "nombre") %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Materia: 
+        </td>
+        <td class="input">
+          <%= select_tag :materia_id, options_from_collection_for_select(@materias, "id", "nombre") %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Fecha:
+        </td>
+        <td class="input">
+          <%= date_select :fecha, nil %><br />
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= submit_tag 'Lista de asistencia' %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

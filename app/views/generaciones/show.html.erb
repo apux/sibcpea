@@ -1,0 +1,23 @@
+<p>
+  <b>Clave:</b>
+  <%= @generacion.clave %>
+</p>
+
+<p>
+  <b>Ciclo de inicio:</b>
+  <%= @generacion.ciclo1.clave %>
+</p>
+
+<p>
+  <b>Ciclo de terminación:</b>
+  <%= @generacion.ciclo2.clave %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @generacion.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_generacion_path(@generacion) if can? :update, @generacion %> |
+<%= link_to 'Atrás', generaciones_path %>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Lista de alumnos</h1>
+
+    <table class="titled">
+      <thead>
+        <tr>
+          <th>Matrícula</th>
+          <th>Nombre</th>
+          <th>Apellido paterno</th>
+          <th>Apellido materno</th>
+          <th>Sexo</th>
+        </tr>
+      </thead>
+
+      <% @alumnos.each do |alumno| %>
+        <tr>
+          <td><%= alumno.matricula %></td>
+          <td><%= alumno.nombre %></td>
+          <td><%= alumno.apellido_paterno %></td>
+          <td><%= alumno.apellido_materno %></td>
+          <td><%= alumno.sexo %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <br />
+  </body>
+</html>

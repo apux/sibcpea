@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistemas de Información para Apoyo al Proceso de Enseñanza-Aprendizaje</title>
+    <%= stylesheet_link_tag 'estructura_login' %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <title>SIBC PEA</title>
+  </head>
+  <body>
+    <div id="header_login">
+    </div> <!--header-->  
+    <div id="bglogin_content">
+      <div id="login_content">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash#{name}" %>
+        <% end %>
+        <br />
+        <%= yield %>
+        <br />
+        <br />
+      </div> <!--login_content-->
+    </div> <!--bglogin_content-->
+    <div id="footer_login">
+      Derechos Reservados
+    </div>
+  </body>
+</html>

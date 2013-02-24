@@ -1,0 +1,30 @@
+<%= form_for(@asistencia_grupo) do |f| %>
+  <%= render 'shared/error_messages', :target => @asistencia_grupo, :gender => 'female' %>
+
+  <div class="field">
+    <%= f.label :profesor_materia_id, 'Materia' %><br />
+    <%= f.select :profesor_materia_id, @profesor_materias.collect{|pm| [pm.materia.nombre, pm.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :grupo_id %><br />
+    <%= f.select :grupo_id, Grupo.all.collect{|g| [g.nombre, g.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

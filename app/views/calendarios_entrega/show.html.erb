@@ -1,0 +1,17 @@
+<p>
+<b>Nombre:</b>
+<%= @calendario_entrega.nombre %>
+</p>
+
+<table border="1">
+  <tr><td><b>Descripción:</b></td><td><b>Fecha:</b></td></tr>
+  <% @calendario_entrega.fechas_entrega.each do |fe| %>
+    <tr>
+      <td><%= fe.descripcion %></td>
+      <td><%= fe.fecha %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Editar', edit_calendario_entrega_path(@calendario_entrega) %> |
+<%= link_to 'Atrás', calendarios_entrega_path %>

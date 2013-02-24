@@ -1,0 +1,35 @@
+<h1>Lista de registros de tutorías</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Tutoria</th>
+      <th>Fecha</th>
+      <th>Tiempo</th>
+      <th>Asunto</th>
+      <th>Compromiso</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registro_tutorias.each do |registro_tutoria| %>
+      <tr>
+        <td><%= registro_tutoria.tutoria.alumno.nombre_completo %> - <%= registro_tutoria.tutoria.profesor.nombre_completo %></td>
+        <td><%= registro_tutoria.fecha %></td>
+        <td><%= registro_tutoria.tiempo %></td>
+        <td><%= registro_tutoria.asunto %></td>
+        <td><%= registro_tutoria.compromiso %></td>
+        <td><%= link_to 'Mostrar', registro_tutoria %></td>
+        <td><%= link_to 'Editar', edit_registro_tutoria_path(registro_tutoria) %></td>
+        <td><%= link_to 'Eliminar', registro_tutoria, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Registro de tutoría', new_registro_tutoria_path %>

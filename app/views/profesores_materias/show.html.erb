@@ -1,0 +1,23 @@
+<p>
+  <b>Profesor ciclo:</b>
+  <%= @profesor_materia.profesor_ciclo %>
+</p>
+
+<p>
+  <b>Materia:</b>
+  <%= @profesor_materia.materia %>
+</p>
+
+<p>
+  <b>Grupo:</b>
+  <%= @profesor_materia.grupo %>
+</p>
+
+<p>
+  <b>Hora:</b>
+  <%= @profesor_materia.hora %>
+</p>
+
+
+<%= link_to 'Editar', edit_profesor_materia_path(@profesor_materia) %> |
+<%= link_to 'Atrás', profesores_materias_path %>

@@ -1,0 +1,73 @@
+<%= form_for(@calendario_recurso) do |f| %>
+  <%= render 'shared/error_messages', :target => @calendario_recurso %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del Calendario de recursos</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr> 
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div> 
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :recurso_laboratorio_id, 'Recurso' %>:
+        </td>
+        <td class="input">
+          <%= f.select :recurso_laboratorio_id, RecursoLaboratorio.all.collect{|rl| [rl.nombre, rl.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :fecha %>:
+        </td>
+        <td class="input">
+          <%= f.date_select :fecha %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :hora_inicio %>:
+        </td>
+        <td class="input">
+          <%= f.select :hora_inicio, CalendarioRecurso::HORAS_INICIO %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :hora_fin %>:
+        </td>
+        <td class="input">
+          <%= f.select :hora_fin, CalendarioRecurso::HORAS_FIN %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :reservado_para %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :reservado_para %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

@@ -1,0 +1,27 @@
+<h1>
+  <%= @usuarios.length == 1 ? "Usuario" : "Usuarios" %>
+</h1>
+
+<table class="titled">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Permiso</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%= usuario.login %></td>
+    <td><%= usuario.permiso.tipo_permiso %></td>
+    <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Eliminar', usuario, :confirm => '¿Está usted seguro?', :method => :delete if usuario.permiso.tipo_permiso != "admin" %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />

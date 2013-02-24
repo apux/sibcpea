@@ -1,0 +1,56 @@
+<%= form_for(@laboratorio) do |f| %>
+  <%= render 'shared/error_messages', :target => @laboratorio %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del Laboratorio</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr> 
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div> 
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :nombre %>:
+          </td>
+          <td>
+          <%= f.text_field :nombre %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Recursos:
+        </td>
+        <td class="input">
+          <div class="recursos_laboratorio">
+            <%= f.fields_for :recursos_laboratorio do |correo_form| %>
+              <%= render 'recurso_laboratorio_fields', :f => correo_form %>
+            <% end %>
+            <div style="float:right">
+              <%= link_to_create "Agregar recurso", RecursoLaboratorio.new, f %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

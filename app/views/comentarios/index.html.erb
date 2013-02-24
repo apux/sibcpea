@@ -1,0 +1,25 @@
+<h1>Lista de comentarios</h1>
+
+<table class="titled">
+  <tr>
+    <th>Aviso</th>
+    <th>Usuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comentarios.each do |comentario| %>
+  <tr>
+    <td><%= comentario.aviso.aviso %></td>
+    <td><%= comentario.usuario.nombre %></td>
+    <td><%= link_to 'Mostrar', aviso_comentario_path(comentario.aviso, comentario) %></td>
+    <td><%= link_to 'Editar', edit_aviso_comentario_path(comentario.aviso, comentario) %></td>
+    <td><%= link_to 'Elimimnar', [comentario.aviso, comentario], :confirm => '¿Está usted seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Comentario', new_aviso_comentario_path(@aviso) %>

@@ -1,0 +1,33 @@
+<h1>Lista de generaciones</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Clave</th>
+      <th>Ciclo de inicio</th>
+      <th>Ciclo de terminación</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generaciones.each do |generacion| %>
+      <tr>
+        <td><%= generacion.clave %></td>
+        <td><%= generacion.ciclo1.clave %></td>
+        <td><%= generacion.ciclo2.clave %></td>
+        <td><%= generacion.descripcion %></td>
+        <td><%= link_to 'Mostrar', generacion %></td>
+        <td><%= link_to 'Editar', edit_generacion_path(generacion) if can? :update, generacion %></td>
+        <td><%= link_to 'Eliminar', generacion, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, generacion %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Generacion', new_generacion_path if can? :create, Generacion %>

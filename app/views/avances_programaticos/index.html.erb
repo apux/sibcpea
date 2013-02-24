@@ -1,0 +1,35 @@
+<h1>Lista de avances_programaticos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Reporte número</th>
+      <th>Profesor materia</th>
+      <th>Carrera</th>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avances_programaticos.each do |avance_programatico| %>
+      <tr>
+        <td><%= avance_programatico.id %></td>
+        <td><%= avance_programatico.numero %></td>
+        <td><%= avance_programatico.profesor_materia.profesor_ciclo.profesor.nombre_completo %> - <%= avance_programatico.profesor_materia.materia.nombre %>   </td>
+        <td><%= avance_programatico.carrera.nombre %></td>
+        <td><%= avance_programatico.fecha %></td>
+        <td><%= link_to 'Mostrar', avance_programatico %></td>
+        <td><%= link_to 'Editar', edit_avance_programatico_path(avance_programatico) %></td>
+        <td><%= link_to 'Eliminar', avance_programatico, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Avance programatico', new_avance_programatico_path %>

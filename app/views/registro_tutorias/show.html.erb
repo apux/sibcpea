@@ -1,0 +1,33 @@
+<p>
+  <b>Tutoria:</b>
+    <%= @registro_tutoria.tutoria.alumno.nombre_completo %> - <%= @registro_tutoria.tutoria.profesor.nombre_completo %>
+</p>
+
+<p>
+  <b>Semestre:</b>
+  <%= @registro_tutoria.semestre %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @registro_tutoria.fecha %>
+</p>
+
+<p>
+  <b>Tiempo:</b>
+  <%= @registro_tutoria.tiempo %>
+</p>
+
+<p>
+  <b>Asunto:</b>
+  <%= @registro_tutoria.asunto %>
+</p>
+
+<p>
+  <b>Compromiso:</b>
+  <%= @registro_tutoria.compromiso %>
+</p>
+
+
+<%= link_to 'Editar', edit_registro_tutoria_path(@registro_tutoria) %> |
+<%= link_to 'Atrás', registro_tutorias_path %>

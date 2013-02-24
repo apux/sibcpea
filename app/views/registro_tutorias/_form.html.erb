@@ -1,0 +1,73 @@
+<%= form_for(@registro_tutoria) do |f| %>
+  <%= render 'shared/error_messages', :target => @registro_tutoria %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del registro de tutoría</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :tutoria_id, 'Alumno' %>:
+        </td>
+        <td>
+          <%= f.select :tutoria_id, usuario_actual.profesor.tutorias.collect{|t| [t.alumno.nombre_completo, t.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :fecha %>:
+        </td>
+        <td>
+          <%= f.date_select :fecha %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :tiempo %>:
+        </td>
+        <td>
+          <%= f.text_field :tiempo %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :asunto %>:
+        </td>
+        <td>
+          <%= f.text_field :asunto %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :compromiso %>:
+        </td>
+        <td>
+          <%= f.text_field :compromiso %>
+        </td>
+      </tr>
+    </body>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

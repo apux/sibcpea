@@ -1,0 +1,27 @@
+<h1>Lista de documentos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documentos.each do |documento| %>
+      <tr>
+        <td><%= documento.nombre %></td>
+        <td><%= link_to 'Mostrar', documento %></td>
+        <td><%= link_to 'Editar', edit_documento_path(documento) if can? :update, documento %></td>
+        <td><%= link_to 'Eliminar', documento, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, documento %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Documento', new_documento_path if can? :create, Documento %>

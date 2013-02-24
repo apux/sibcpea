@@ -1,0 +1,51 @@
+<% if @asistencia_grupo.asistencias.empty? %>
+  No hay alumnos registrados la materia 
+  <%= @asistencia_grupo.profesor_materia.materia.nombre %>
+  para el ciclo escolar
+  <%= @asistencia_grupo.profesor_materia.profesor_ciclo.ciclo.clave %>
+  para el profesor 
+  <%= @asistencia_grupo.profesor_materia.profesor_ciclo.profesor.nombre_completo %>
+  <br />
+  <br />
+  <br />
+<% else %>
+  <p>
+  <b>Profesor materia:</b>
+  <%= @asistencia_grupo.profesor_materia.profesor_ciclo.profesor.nombre_completo %>
+  </p>
+
+  <p>
+  <b>Grupo:</b>
+  <%= @asistencia_grupo.grupo.nombre %>
+  </p>
+
+  <p>
+  <b>Fecha:</b>
+  <%= @asistencia_grupo.fecha %>
+  </p>
+
+  <p>
+  <b>Alumnos:</b><br/>
+  <%= form_for @asistencia_grupo do |f| %>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td>Presente</td>
+        <td>Observación</td>
+      </tr>
+      <% @asistencia_grupo.asistencias.each do |asistencia| %>
+        <%= f.fields_for :asistencias, asistencia do |f_a| %>
+          <tr>
+            <td><%= asistencia.alumno_ciclo.alumno.nombre_completo(:apellidos) %></td>
+            <td><%= f_a.check_box :presente %></td>
+            <td><%= f_a.text_field :observacion %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+    <%= f.submit %>
+  <% end %>
+  </p>
+
+<% end %>
+<%= link_to 'Atrás', asistencia_grupos_path %>

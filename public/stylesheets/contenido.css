@@ -1,0 +1,381 @@
+h1 {
+    font-size: 138.5%;
+    color:#000;
+}
+
+h2 {
+  font-size: 100%;
+  color:#000;
+    /*font-size: 123.1%;*/
+
+}
+
+h3 {
+color:#000;
+    /*font-size: 108%;*/
+}
+
+h1,h2,h3 {
+
+    margin: 1em 0;
+
+}
+
+h1,h2,h3,h4,h5,h6,strong,dt {
+    /* Bringing boldness back to headers and the strong element. */
+    font-weight: bold;
+}
+
+
+optgroup {
+    font-weight:normal;
+}
+
+abbr,acronym {
+    /* Indicating to users that more info is available. */
+    border-bottom: 1px dotted #000;
+    cursor: help;
+}
+
+em {
+    /* Bringing italics back to the em element. */
+    font-style: italic;
+}
+
+del {
+    /* Striking deleted phrases. */
+    text-decoration: line-through;
+}
+
+blockquote,ul,ol,dl {
+    /* Giving blockquotes and lists room to breath. */
+    margin: 1em;
+}
+
+ol,ul,dl {
+    /* Bringing lists on to the page with breathing room. */
+    margin-left: 2em;
+}
+
+
+
+th,td {
+    /* Borders and padding to make the table readable. */
+    padding: .5em;
+}
+
+th {
+    /* Distinguishing table headers from data cells. */
+    font-weight: bold;
+    text-align: center;
+}
+
+caption {
+    /* Coordinated margin to match cell's padding. */
+    margin-bottom: .5em;
+    /* Centered so it doesn't blend in to other content. */
+    text-align: center;
+}
+
+sup {
+    /* to preserve line-height and selector appearance */
+    vertical-align: super;
+}
+
+sub {
+    /* to preserve line-height and selector appearance */
+    vertical-align: sub;
+}
+
+p,
+fieldset,
+table,
+pre {
+    /* So things don't run into each other. */
+    margin-bottom: 1em;
+}
+/* Opera requires 1px of passing to render with contemporary native chrome */
+button,
+input[type="checkbox"],
+input[type="radio"],
+input[type="reset"],
+input[type="submit"] {
+    padding:1px;
+}
+
+
+
+
+
+#content p {
+    color: #000000;
+    font-family: /*Verdana, Tahoma,*/ sans-serif;
+    font-size: 13px;
+    padding: 8px 0px 8px 10px;
+    margin:0;
+}
+
+
+
+
+#content herror{
+    font-size: 14px;
+    color:red;
+    text-align: center;
+}
+
+#content a:link, #content a:visited{
+    color: #660000;
+    text-decoration:underline;
+    font-style: normal;
+    padding: 0px 5px 0px 0px;
+    /* 	font-variant:small-caps; */
+    font-size: 12px;
+}
+
+#content a:hover{
+    background: #660000;
+    color: #fff;
+    text-decoration:underline;
+}
+
+#content ul{
+    color: #000000;
+    list-style-type:disc;
+    font-size:12px;
+
+}
+
+#content li{
+    padding: 2px 2px 2px 2px;
+}
+
+#content li ul{
+    color: #000000;
+    list-style-type:circle;
+    padding: 10px 0px 8px 15px;
+}
+
+#content li ul li{
+    padding: 2px 2px 2px 2px;
+}
+
+#content ol{
+    color: #000000;
+    list-style-type: decimal;
+}
+
+#content ul li ol{
+    color: #000000;
+    list-style-type:decimal;
+    padding: 10px 0px 8px 15px;
+}
+
+#content ol li ol{
+    color: #000000;
+    list-style-type: lower-alpha;
+    padding: 10px 0px 8px 15px;
+}
+
+#content ol li ul{
+    color: #000000;
+    list-style-type: circle;
+    padding: 10px 0px 8px 15px;
+}
+
+table.titled {
+    caption-side: bottom;
+    border-collapse:collapse;
+    margin: 5px 0px 0px 10px;
+    font-size:12px;
+}
+
+table.titled thead{
+    background-color: #000;
+}
+
+table.titled thead td, table.titled thead th{
+    border-width: 1px;
+    border-style:solid;
+    border-color:#000;
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+    font-weight:bold;
+    color: #FFFFFF;
+}
+
+table.titled tr td{
+    border-width: 1px;
+    border-style:solid;
+    border-color:#5d0c06;
+    text-align: left;
+    padding: 1px 15px 1px 15px;
+}
+
+table.titled caption{
+    font-style:italic;
+    padding: 3px 0px 10px 15px;
+    text-align: left;
+    font-size: 11px;
+}
+
+table.titled tfoot td{
+    font-weight:bold;
+}
+
+table td#tdcenter{
+    text-align:center;
+}
+
+table#smallfont tr td{
+    font-size:10px;
+}
+
+table#smallfont td#tdcenter{
+    padding:7px;
+    text-align:center;
+}
+
+table.titledlist {
+    caption-side: bottom;
+    border-collapse:collapse;
+    margin: 5px 0px 0px 10px;
+    font-size:12px;
+}
+
+table.titledlist thead{
+    background-color: #000;
+}
+
+table.titledlist thead td, table.titledlist thead th, table.titlelist thead tr{
+    border-width: 1px;
+    border-style:solid;
+    border-color:#000;
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+    font-weight:bold;
+    color: #FFFFFF;
+}
+
+#trlevel1
+{
+    background-color: #5d0c06;
+    font-weight:bold;
+    color: #FFFFFF;
+}
+
+table.titledlist tr td{
+    border-width: 1px;
+    border-style:solid;
+    border-color:#5d0c06;
+    text-align: left;
+    padding: 1px 15px 1px 15px;
+}
+
+
+
+table.titledlist tr td a{
+    text-align: left;
+    padding: 1px 15px 1px 15px;
+    color: #b8170b;
+}
+
+
+table.titledlist caption{
+    font-style:italic;
+    padding: 3px 0px 10px 15px;
+    text-align: left;
+    font-size: 11px;
+}
+
+table.titledlist tfoot td{
+    font-weight:bold;
+}
+
+table.titledlist tbody tr:hover td, table.titledlist tbody tr:hover th {
+    background: #c6c09a;
+}
+table.titledlist tbody tr:hover.odd td, table.titledlist tbody tr:hover.odd th {
+    background: #FFF;
+}
+
+table.form {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    padding: 0px 0px 0px 10px;
+
+    /*border-collapse:collapse;
+	margin: 0px 0px 0px 10px;*/
+}
+
+table.form thead td{
+    text-align: center;
+    font-weight: bold;
+    padding: 15px 0px 15px 0px;
+}
+
+table.form tfoot td{
+    text-align: left;
+    padding: 10px 0px 10px 0px;
+}
+
+table.form tr td.name{
+    text-align: right;
+    border-width: 0px;
+    padding: 1px 5px 1px 2px;
+}
+
+table.form tr td.input{
+    text-align: left;
+}
+
+span.error{
+    font-style:italic;
+    color: #ff0000;
+    padding-left: 10px;
+}
+
+table.form tr td.errorblock{
+    text-align: left;
+    font-style:italic;
+    color: #0F56CF;
+    padding-bottom:15px;
+}
+
+table.sinborde {
+    border-width: 0px;
+    caption-side: bottom;
+    padding: 5px 0px 0px 10px;
+}
+
+table.sinborde thead td, table.sinborde thead th{
+    border-width: 0px;
+    border-style:solid;
+    border-color:#000000;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    font-weight:bold;
+}
+
+table.sinborde tr td{
+    border-width: 0px;
+    border-style:solid;
+    border-color:#000000;
+    padding: 1px 15px 1px 2px;
+}
+
+table.sinborde caption{
+    font-style:italic;
+    padding: 3px 0px 10px 15px;
+    text-align: left;
+    font-size: 11px;
+}
+
+table.sinborde tfoot td{
+    font-weight:bold;
+}
+
+table.titledlist#hidden{
+    visibility:hidden;
+}
+

@@ -1,0 +1,13 @@
+<p>
+  <b>Aviso:</b>
+  <%= @comentario.aviso.aviso %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @comentario.usuario.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_aviso_comentario_path(@comentario.aviso) %> |
+<%= link_to 'Atrás', aviso_comentarios_path(@comentario.aviso) %>

@@ -1,0 +1,28 @@
+<div class="fields" style="border-bottom: 1px solid;">
+  <div class="field">
+    <%= f.label :unidad_tema %>
+    <%= f.text_field :unidad_tema %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :horas_impartidas %>
+    <%= f.text_field :horas_impartidas, :size => 5 %>
+  </div>
+  <div class="field">
+    <%= f.label :taxonomia %>
+    <%= f.text_field :taxonomia %>
+  </div>
+  <div class="field">
+    <%= f.label :objetivo %>
+    <%= f.text_field :objetivo %>
+  </div>
+  <div class="field">
+    <%= f.label :modalidad_evaluacion, 'Modalidad de evaluación' %>
+    <%= f.text_field :modalidad_evaluacion %>
+  </div>
+  <%= link_to_remove 'Borrar este registro del avance programático', f %>
+</div>
+

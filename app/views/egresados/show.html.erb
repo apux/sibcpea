@@ -1,0 +1,28 @@
+<p>
+  <b>Alumno:</b>
+  <%= @egresado.alumno %>
+</p>
+
+<p>
+  <b>Generacion:</b>
+  <%= @egresado.generacion %>
+</p>
+
+<p>
+  <b>Titulado:</b>
+  <%= @egresado.titulado %>
+</p>
+
+<p>
+  <b>Metodo:</b>
+  <%= @egresado.metodo %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @egresado.fecha %>
+</p>
+
+
+<%= link_to 'Editar', edit_egresado_path(@egresado) %> |
+<%= link_to 'Atrás', egresados_path %>

@@ -1,0 +1,29 @@
+<h1>Lista de permisos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Tipo de permiso</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permisos.each do |permiso| %>
+      <tr>
+        <td><%= permiso.tipo_permiso %></td>
+        <td><%= permiso.descripcion %></td>
+        <td><%= link_to 'Mostrar', permiso %></td>
+        <td><%= link_to 'Editar', edit_permiso_path(permiso) if can? :update, permiso %></td>
+        <td><%= link_to 'Eliminar', permiso, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, permiso %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Permiso', new_permiso_path if can? :create, Permiso %>

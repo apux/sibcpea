@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: MyString
+
+two:
+  codigo: MyString
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: MyString

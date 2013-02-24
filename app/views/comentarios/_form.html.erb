@@ -1,0 +1,11 @@
+<br />
+<%= form_for([@comentario.aviso, @comentario]) do |f| %>
+  <%= render 'shared/error_messages', :target => @comentario %>
+  <div class="field">
+    <%= f.label :comentario, 'Agregar comentario' %>:<br />
+    <%= f.text_area :comentario, :size => "50x3" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

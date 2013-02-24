@@ -1,0 +1,31 @@
+<h1>Lista de alumnos_ciclos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Ciclo</th>
+      <th>Grupo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alumnos_ciclos.each do |alumno_ciclo| %>
+      <tr>
+        <td><%= alumno_ciclo.alumno.nombre_completo %></td>
+        <td><%= alumno_ciclo.ciclo.clave %></td>
+        <td><%= alumno_ciclo.grupo.nombre %></td>
+        <td><%= link_to 'Mostrar', alumno_ciclo %></td>
+        <td><%= link_to 'Editar', edit_alumno_ciclo_path(alumno_ciclo) %></td>
+        <td><%= link_to 'Eliminar', alumno_ciclo, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Alumno ciclo', new_alumno_ciclo_path %>

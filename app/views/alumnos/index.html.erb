@@ -1,0 +1,34 @@
+<h1>Lista de alumnos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Matrícula</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Sexo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @alumnos.each do |alumno| %>
+    <tr>
+      <td><%= alumno.matricula %></td>
+      <td><%= alumno.nombre %></td>
+      <td><%= alumno.apellido_paterno %></td>
+      <td><%= alumno.apellido_materno %></td>
+      <td><%= alumno.sexo %></td>
+      <td><%= link_to 'Mostrar', alumno %></td>
+      <td><%= link_to 'Editar', edit_alumno_path(alumno) if can? :update, alumno %></td>
+      <td><%= link_to 'Eliminar', alumno, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, alumno %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Alumno', new_alumno_path if can? :create, Alumno %>
+<%= link_to 'Listado para imprimir', lista_imprimir_alumnos_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  numero: MyString
+  profesor_materia: 
+  carrera: MyString
+  fecha: 2011-04-01
+
+two:
+  numero: MyString
+  profesor_materia: 
+  carrera: MyString
+  fecha: 2011-04-01

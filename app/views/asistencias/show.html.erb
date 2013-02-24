@@ -1,0 +1,23 @@
+<p>
+  <b>Asistencia grupo:</b>
+  <%= @asistencia.asistencia_grupo %>
+</p>
+
+<p>
+  <b>Alumno ciclo:</b>
+  <%= @asistencia.alumno_ciclo %>
+</p>
+
+<p>
+  <b>Presente:</b>
+  <%= @asistencia.presente %>
+</p>
+
+<p>
+  <b>Observacion:</b>
+  <%= @asistencia.observacion %>
+</p>
+
+
+<%= link_to 'Editar', edit_asistencia_path(@asistencia) %> |
+<%= link_to 'Atrás', asistencias_path %>

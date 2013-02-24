@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  profesor: 
+  telefono: MyString
+  string: 
+
+two:
+  profesor: 
+  telefono: MyString
+  string: 

@@ -1,0 +1,42 @@
+<% if @alumnos.count > 0 %>
+<% form_tag '/egresados/egresar' do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="name">
+            Generación:
+          </td>
+          <td class="input">
+            <%= select_tag :generacion_id, options_from_collection_for_select(Generacion.all, "id", "clave") %>
+          </td>
+        </tr>
+      <% @alumnos.each do |alumno| %>
+        <tr>
+          <td class="name">
+            <%= check_box_tag 'alumno_ids[]', alumno.id, true %>
+          </td>
+          <td class="input">
+            <%= alumno.nombre_completo %><br />
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <%= submit_tag 'Registrar como egresados' %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+<% else %>
+  <br />
+  No hay alumnos en este grupo
+<% end%>

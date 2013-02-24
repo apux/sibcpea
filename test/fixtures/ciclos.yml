@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  clave: MyString
+  tipo: MyString
+  fecha_inicio: 2011-03-09
+  fecha_fin: 2011-03-09
+  descripcion: MyString
+
+two:
+  clave: MyString
+  tipo: MyString
+  fecha_inicio: 2011-03-09
+  fecha_fin: 2011-03-09
+  descripcion: MyString

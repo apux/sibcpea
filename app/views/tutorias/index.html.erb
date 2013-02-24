@@ -1,0 +1,29 @@
+<h1>Lista de tutorias</h1>
+
+<table class="titled">
+  <thead>
+  <tr>
+    <th>Profesor</th>
+    <th>Alumno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @tutorias.each do |tutoria| %>
+  <tr>
+    <td><%= tutoria.profesor.nombre_completo %></td>
+    <td><%= tutoria.alumno.nombre_completo %></td>
+    <td><%= link_to 'Mostrar', tutoria %></td>
+    <td><%= link_to 'Editar', edit_tutoria_path(tutoria) if can? :update, tutoria %></td>
+    <td><%= link_to 'Eliminar', tutoria, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, tutoria %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Tutoria', new_tutoria_path if can? :create, Tutoria %>

@@ -1,0 +1,21 @@
+<h1>Editar usuario</h1>
+
+<%= form_for @usuario do |f| %>
+  <%= render 'shared/error_messages', :target => @usuario %>
+
+  <div class="user">
+    <%= f.label :login %><br />
+    <%= f.text_field :login, :readonly => true %>
+  </div>
+  <div class="passwd">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="passwd">
+    <%= f.label :password_confirmation, 'Confirmación de password' %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

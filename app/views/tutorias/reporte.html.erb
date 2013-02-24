@@ -1,0 +1,30 @@
+<%= form_tag genera_reporte_tutorias_path do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+          Seleccione los datos necesarios
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          Mes:
+        </td>
+        <td class="input">
+          <%= date_select :fecha, nil, :discard_day => true %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= submit_tag 'Generar reporte' %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

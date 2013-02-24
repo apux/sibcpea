@@ -1,0 +1,12 @@
+<p>
+  <b>Nombre:</b>
+  <%= @laboratorio.nombre %>
+</p>
+
+<p>
+  <b>Recursos:</b>
+  <%= @laboratorio.recursos_laboratorio.collect(&:nombre).to_sentence %>
+</p>
+
+<%= link_to 'Editar', edit_laboratorio_path(@laboratorio) if can? :update, @laboratorio %> |
+<%= link_to 'Atrás', laboratorios_path %>

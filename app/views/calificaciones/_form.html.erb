@@ -1,0 +1,152 @@
+<%= form_for(@calificacion) do |f| %>
+  <%= render 'shared/error_messages', :target => @calificacion, :gender => 'female' %>
+
+  <table class="form">
+    <tbody>
+      <tr>
+        <td class="name" width="25%">
+          <%= f.label :profesor_materia_id, 'Materia' %>:
+        </td>
+        <td class="input" colspan="2">
+          <%= f.select :profesor_materia_id, [[@profesor_materia.materia.nombre, @profesor_materia.id]] %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :alumno_ciclo_id %>:
+        </td>
+        <td class="input" colspan="2">
+          <%= f.select :alumno_ciclo_id, @alumnos_ciclos.collect{|ac| ["#{ac.alumno.nombre_completo} - #{ac.ciclo.clave}", ac.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :parcial1 %>:
+        </td>
+        <td class="input" width="15%">
+          <%= f.text_field :parcial1, :size => 5, :onchange => "mostrar_motivo(this, 'parcial1');" %>
+        </td>
+        <td width="55%">
+          <div style="display:none" id="div_motivo_parcial1">
+            <%= f.select :motivo_parcial1, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :parcial2 %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :parcial2, :size => 5, :onchange => "mostrar_motivo(this, 'parcial2');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_parcial2">
+            <%= f.select :motivo_parcial2, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :parcial3 %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :parcial3, :size => 5, :onchange => "mostrar_motivo(this, 'parcial3');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_parcial3">
+            <%= f.select :motivo_parcial3, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :ordinario %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :ordinario, :size => 5, :onchange => "mostrar_motivo(this, 'ordinario');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_ordinario">
+            <%= f.select :motivo_ordinario, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :extra1 %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :extra1, :size => 5, :onchange => "mostrar_motivo(this, 'extra1');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_extra1">
+            <%= f.select :motivo_extra1, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :extra2 %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :extra2, :size => 5, :onchange => "mostrar_motivo(this, 'extra2');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_extra2">
+            <%= f.select :motivo_extra2, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :especial %>:
+        </td>
+        <td class="input">
+          <%= f.text_field :especial, :size => 5, :onchange => "mostrar_motivo(this, 'especial');" %>
+        </td>
+        <td>
+          <div style="display:none" id="div_motivo_especial">
+            <%= f.select :motivo_especial, Calificacion::MOTIVOS_CERO, :prompt => "Especifique motivo del 0" %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+
+<script>
+  mostrar_motivo('calificacion_parcial1', 'parcial1');
+  mostrar_motivo('calificacion_parcial2', 'parcial2');
+  mostrar_motivo('calificacion_parcial3', 'parcial3');
+  mostrar_motivo('calificacion_ordinario', 'ordinario');
+  mostrar_motivo('calificacion_extra1', 'extra1');
+  mostrar_motivo('calificacion_extra2', 'extra2');
+  mostrar_motivo('calificacion_especial', 'especial');
+  function mostrar_motivo(select, calificacion)
+  {
+    if($(select).value != "" && $(select).value == 0) 
+    $('div_motivo_' + calificacion).show(); 
+    else 
+    $('div_motivo_' + calificacion).hide();
+  }
+</script>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

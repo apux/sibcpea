@@ -1,0 +1,26 @@
+<h1>Lista de profesores</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Numero de trabajador</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Categoria</th>
+      <th>Seguro social</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profesores.each do |profesor| %>
+      <tr>
+        <td><%= profesor.numero_trabajador %></td>
+        <td><%= profesor.nombre %></td>
+        <td><%= profesor.apellido_paterno %></td>
+        <td><%= profesor.apellido_materno %></td>
+        <td><%= profesor.categoria %></td>
+        <td><%= profesor.seguro_social %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

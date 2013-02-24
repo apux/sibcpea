@@ -1,0 +1,98 @@
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+
+    <table style="height: 530px; width: 68.86em;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="0px;">
+      <thead>
+        <tr>
+          <th colspan="3" align="center">
+            <%= image_tag 'utm.png', :size => "100x100"%>
+          </th>
+          <th style="text-align: center; font-size:16pt" colspan="11"><h4> <strong>UNIVERSIDAD TECNOLÓGICA DE LA MIXTECA <br> <br> JEFATURA DE LA CARRERA DE INGENIERIA INDUSTRIAL <br><br> REPORTE DE ASESORIAS </strong></h4></th>
+        </tr>
+      </thead>
+      <tbody style="font-size:12pt">
+        <tr>
+          <td colspan="2">Reporte No.:</td>
+          <td>_<u><%= @reporte_numero %></u>_</td>
+          <td >Del</td>
+          <td colspan="3">__<u><%= l @fecha_inicial, :format => "%d de %B" %></u>___</td>
+          <td>al:</td>
+          <td colspan="3">__<u><%= l @fecha_final, :format => "%d de %B" %></u>___</td>
+          <td>de:</td>
+          <td colspan="3">_<u><%= l @fecha_final, :format => "%Y" %></u>_</td>
+        </tr>
+        <tr>
+          <td colspan="14"></td>
+        </tr>
+        <tr>
+          <td colspan="14">
+            <table style="height: 430px; width: 68.86em; border: 1px solid black; border-collapse: collapse;" align="center;" cellpadding="2px;" cellspacing="0px;">
+              <tbody style="font-size:12pt">
+                <tr>
+                  <td style="text-align: center; border: 1px solid black;width:150px;"><strong>FECHA</strong></td>
+                  <td style="text-align: center; border: 1px solid black; width:150px;"><strong>CODIGO</strong></td>
+                  <td colspan="7" style="text-align: center; border: 1px solid black;"><strong>NOMBRE</strong></td>
+                  <td colspan="4" style="text-align: center; border: 1px solid black;"><strong>TEMA</strong></td>
+                  <td colspan="2" style="text-align: center; border: 1px solid black;"><strong>FIRMA</strong></td>
+                </tr>
+                <% @asesorias.each do |asesoria| %>
+                  <tr>
+                    <td style="border: 1px solid black;">
+                      <%= asesoria.fecha %>
+                    </td>
+                    <td style="border: 1px solid black;">
+                      <%= asesoria.codigo %>
+                    </td>
+                    <td colspan="7" style="border: 1px solid black;">
+                      <%= asesoria.nombre %>
+                    </td>
+                    <td colspan="4" style="border: 1px solid black;">
+                      <%= asesoria.tema %>
+                    </td>
+                    <td colspan="2" style="border: 1px solid black;">
+                    </td>
+                  </tr>
+                <% end %>
+                <% if @asesorias.size < 12 %>
+                  <% (12 - @asesorias.size).times do %>
+                    <tr>
+                      <td style="border: 1px solid black;">&nbsp;</td>
+                      <td style="border: 1px solid black;">&nbsp;</td>
+                      <td colspan="7" style="border: 1px solid black;">&nbsp;</td>
+                      <td colspan="4" style="border: 1px solid black;">&nbsp;</td>
+                      <td colspan="2" style="border: 1px solid black;">&nbsp;</td>
+                    </tr>
+                  <% end %>
+                <% end %>
+
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <table style="width: 68.86em;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="opx;">
+      <tbody style="font-size:11pt">
+        <tr>
+          <td style="text-align: center;">
+            ________________________________________________
+            <br />
+            <%= usuario_actual.profesor.nombre_completo%>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center;" font-size="10pt;">NOMBRE Y FIRMA DEL PROFESOR-INVESTIGADOR</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+</body></html>
+

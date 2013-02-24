@@ -1,0 +1,57 @@
+<%= form_for(@grupo) do |f| %>
+  <%= render 'shared/error_messages', :target => @grupo %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos del Grupo</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= f.label :nombre %>:
+        </td>
+        <td>
+          <%= f.text_field :nombre %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :semestre_id %>:
+        </td>
+        <td>
+          <%= f.select :semestre_id, Semestre.all.collect{|s| [s.nombre, s.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :descripcion %>:
+        </td>
+        <td>
+          <%= f.text_field :descripcion %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

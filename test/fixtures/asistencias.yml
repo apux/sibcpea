@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  asistencia_grupo: 
+  alumno_ciclo: 
+  presente: false
+  observacion: MyString
+
+two:
+  asistencia_grupo: 
+  alumno_ciclo: 
+  presente: false
+  observacion: MyString

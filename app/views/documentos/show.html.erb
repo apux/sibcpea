@@ -1,0 +1,8 @@
+<p>
+  <b>Archivo:</b>
+  <%= link_to @documento.nombre, @documento.documento.to_s if  @documento.documento_file_name %>
+</p>
+
+
+<%= link_to 'Editar', edit_documento_path(@documento) %> |
+<%= link_to 'Atrás', documentos_path %>

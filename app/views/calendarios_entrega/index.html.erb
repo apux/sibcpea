@@ -1,0 +1,23 @@
+<h1>Lista de calendarios_entrega</h1>
+
+<table class="titled">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendarios_entrega.each do |calendario_entrega| %>
+  <tr>
+    <td><%= calendario_entrega.nombre %></td>
+    <td><%= link_to 'Mostrar', calendario_entrega %></td>
+    <td><%= link_to 'Editar', edit_calendario_entrega_path(calendario_entrega) %></td>
+    <td><%= link_to 'Eliminar', calendario_entrega, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Calendario entrega', new_calendario_entrega_path %>

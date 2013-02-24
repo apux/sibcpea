@@ -1,0 +1,45 @@
+<h1>Lista de calificaciones</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Materia</th>
+      <th>Alumno ciclo</th>
+      <th>Parcial1</th>
+      <th>Parcial2</th>
+      <th>Parcial3</th>
+      <th>Ordinario</th>
+      <th>Extra1</th>
+      <th>Extra2</th>
+      <th>Especial</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calificaciones.each do |calificacion| %>
+      <tr>
+        <td><%= calificacion.materia.nombre %></td>
+        <td><%= calificacion.alumno_ciclo.alumno.nombre_completo + " " + calificacion.alumno_ciclo.ciclo.clave %></td>
+        <td><%= calificacion.parcial1 %></td>
+        <td><%= calificacion.parcial2 %></td>
+        <td><%= calificacion.parcial3 %></td>
+        <td><%= calificacion.ordinario %></td>
+        <td><%= calificacion.extra1 %></td>
+        <td><%= calificacion.extra2 %></td>
+        <td><%= calificacion.especial %></td>
+        <td><%= link_to 'Mostrar', calificacion %></td>
+        <td><%= link_to 'Editar', edit_calificacion_path(calificacion) if can? :create, calificacion %></td>
+        <td><%= link_to 'Eliminar', calificacion, :confirm => '¿Está usted seguro?', :method => :delete if can? :create, calificacion %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<% @materias_del_profesor.each do |mp| %>
+  <%= link_to "Nueva Calificación (materia #{mp.materia.nombre})", new_calificacion_path(:profesor_materia => mp) if can? :create, Calificacion %><br />
+<% end %>

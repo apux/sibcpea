@@ -1,0 +1,46 @@
+<%= form_tag genera_reporte_asesorias_path do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+          Seleccione los datos necesarios
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          Fecha inicial:
+        </td>
+        <td class="input">
+          <%= date_select :fecha_inicial, nil %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Fecha final:
+        </td>
+        <td class="input">
+          <%= date_select :fecha_final, nil %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Número de reporte: 
+        </td>
+        <td class="input">
+          <%= text_field_tag :numero %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= submit_tag 'Generar reporte' %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

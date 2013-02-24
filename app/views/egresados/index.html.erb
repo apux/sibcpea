@@ -1,0 +1,26 @@
+<h1>Lista de egresados</h1>
+
+<% if @grupos.count > 0 %>
+  <table class="titled">
+    <thead>
+      <tr>
+        <th>Grupo</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @grupos.each do |grupo| %>
+        <tr>
+          <td><%= grupo.nombre %></td>
+          <td><%= link_to 'Definir egresados', definir_egresados_path(:grupo_id => grupo) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <br />
+  No hay grupos que estén por egresar
+<% end %>
+<br />
+<%= link_to 'Lista completa de egresados', lista_egresados_path %>

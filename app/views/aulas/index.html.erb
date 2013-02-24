@@ -1,0 +1,29 @@
+<h1>Lista de aulas</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aulas.each do |aula| %>
+      <tr>
+        <td><%= aula.nombre %></td>
+        <td><%= aula.descripcion %></td>
+        <td><%= link_to 'Mostrar', aula if can? :read, aula %></td>
+        <td><%= link_to 'Editar', edit_aula_path(aula) if can? :update, aula %></td>
+        <td><%= link_to 'Eliminar', aula, :confirm => '¿Está usted seguro?', :method => :delete if can? :destroy, aula %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Aula', new_aula_path if can? :create, Aula %>

@@ -1,0 +1,187 @@
+<html>
+  <body>
+    <table style="height:180px; width: 850px; border:1px solid black; " align="center;"  cellpadding="2px;" cellspacing="0px;">
+      <tbody>
+        <tr>
+          <td style="border-right:1px solid black; height:150px; width:150px;" align="center" colspan="2", rowspan="2">
+            <%= image_tag 'utm.png', :size => "130x130"%>
+          </td>
+
+          <td style="text-align: center;border-bottom:1px solid black;" colspan="23">
+            <strong>
+              <h3>
+                UNIVERSIDAD TECNOLOGICA DE LA MIXTECA
+                <br />
+                LISTA DE ASISTENCIA
+                <br />
+                GRUPO: <%= @grupo.nombre%>
+              </h3>
+            </strong>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="25">
+            <strong>
+              PROFESOR:
+            </strong>
+            _________<u><%= usuario_actual.profesor.nombre_completo %></u>____________
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="border-right:1px solid black;"></td>
+          <td colspan="13">
+            <strong>
+              MATERIA:
+            </strong>
+            ___________<u><%= @materia.nombre %></u>______________
+          </td>
+          <td colspan="10">
+            <strong>
+              MES:
+            </strong>
+            ___<u><%= l(@fecha_inicial, :format => "%B").upcase %></u>___
+          </td>
+        </tr>
+        <td colspan="2" style="border-right:1px solid black;"></td>
+        <tr >
+        </tr>
+      </tbody>
+    </table>
+    <table style="height:8px; width:850px; text-align:center; border-collapse: collapse;"  align="center;" cellpadding="0px;" cellspacing="0px;">
+      <tbody style="font-size:11pt">
+
+        <tr style="border-bottom:1px solid black;">
+          <td bgcolor="#adadad" style="width: 30px; text-align:center; "><strong>N&#218;M.</strong></td>
+          <td bgcolor="#adadad" style="width: 120px; text-align:center;"><strong>MATR&#205;CULA</strong></td>
+          <td bgcolor="#adadad" style="width: 270px; text-align:center;"><strong>NOMBRE</strong></td>
+          <td bgcolor="#adadad"; style="border-right:1px solid black; width: 15px; text-align:center;"></td>
+          <% @fechas.each do |fecha| %>
+            <td bgcolor="#adadad"; style="border-right:1px solid black; width: 15px; text-align:center;">
+              <%= fecha.day %>
+            </td>
+        <% end %>
+          <% (@fechas.count..20).each do |_| %>
+            <td bgcolor="#adadad"; style="border-right:1px solid black; width: 15px; text-align:center;">
+            </td>
+        <% end %>
+          <td bgcolor="#adadad"; style="text-align:center;"><strong>ASISTENCIA <br>(%)</strong></td>
+        </tr>
+
+        <% contador_alumnos = 0%>
+        <% @grupo.alumnos.each do |alumno| %>
+          <% contador_alumnos += 1%>
+          <tr style="border-bottom:1px solid black;  border-left:1px solid black;border-right:1px solid black;height:35px;">
+            <td  style="width: 30px; text-align:center;" >
+              <%= contador_alumnos %>
+            </td>
+            <td  style="width: 120px; text-align:center;">
+              <%= alumno.matricula %>
+            </td>
+            <td  style="width: 270px; text-align:left;">
+              <%= alumno.nombre_completo %>
+            </td>
+            <td  style="border-right:1px solid black; width: 15px;">
+            </td>
+            <% @fechas.each do |fecha| %>
+            <td  style="border-right:1px solid black; width: 15px;">
+              <% unless @asistencias_por_fecha[fecha].nil? %>
+              <%=  @asistencias_por_fecha[fecha].find{|a| a.alumno_ciclo.alumno == alumno && a.presente} ? "*" : "-" %>
+            <% end %>
+            </td>
+          <% end %>
+          <% (@fechas.count..20).each do |_| %>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+          <% end %>
+
+          </tr>
+        <% end %>
+        <% (contador_alumnos..10).each do |c|%>
+<tr style="border-bottom:1px solid black;  border-left:1px solid black;border-right:1px solid black;height:35px;">
+            <td  style="width: 30px; text-align:center;" >
+              &nbsp;
+            </td>
+            <td  style="width: 120px; text-align:center;">
+            </td>
+            <td  style="width: 270px; text-align:left;">
+            </td>
+            <td  style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td  style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+            <td style="border-right:1px solid black; width: 15px;">
+            </td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <table style="width: 850px;" align="center;" bgcolor="white" border="0px;" bordercolor="black" cellpadding="2px;" cellspacing="0px;">
+      <tbody style="font-size:11pt">
+        <tr>
+          <td style="text-align: center;">
+            ________________________________________________
+            <br />
+            <%= usuario_actual.profesor.nombre_completo%>
+
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center;" font-size="10pt;">FIRMA DEL PROFESOR-INVESTIGADOR</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </body>
+</html>
+
+
+
+
+

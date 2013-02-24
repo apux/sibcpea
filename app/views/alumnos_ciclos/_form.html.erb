@@ -1,0 +1,61 @@
+<% if @ciclo_actual %>
+<%= form_for(@alumno_ciclo) do |f| %>
+  <%= render 'shared/error_messages', :target => @alumno_ciclo %>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos de la Inscripcion</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr> 
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </td> 
+        </td>
+      </tr>
+    </tfoot>
+    <thead>
+      <tr>
+        <td class="name">
+          <%= f.label :ciclo %>:
+        </td>
+        <td>
+          <b><%= @ciclo_actual.clave %></b>
+          <%= f.hidden_field :ciclo_id, :value => @ciclo_actual.id.to_s %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :alumno %>:
+        </td>
+        <td class="input">
+          <%= f.select :alumno_id, Alumno.all.collect{|a| [a.nombre_completo, a.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :grupo %>:
+        </td>
+        <td class="input">
+          <%= f.select :grupo_id, Grupo.all.map{|g| [g.nombre, g.id]} %>
+        </td>
+      </tr>
+    </thead>
+  </table>
+<% end %>
+<% else%>
+  <h3>No es posible administrar esta información, porque no se ha dado de alta ciclos<h3>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.name input');
+  links.each(
+      function(element) {
+      Event.observe(element, 'keyup', function(){
+        element.value = element.value.toUpperCase();
+        });
+      });
+</script>

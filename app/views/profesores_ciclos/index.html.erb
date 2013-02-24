@@ -1,0 +1,29 @@
+<h1>Lista de profesores_ciclos</h1>
+
+<table class="titled">
+  <thead>
+    <tr>
+      <th>Ciclo</th>
+      <th>Profesor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profesores_ciclos.each do |profesor_ciclo| %>
+      <tr>
+        <td><%= profesor_ciclo.ciclo.clave %></td>
+        <td><%= profesor_ciclo.profesor.nombre_completo %></td>
+        <td><%= link_to 'Mostrar', profesor_ciclo %></td>
+        <td><%= link_to 'Editar', edit_profesor_ciclo_path(profesor_ciclo) %></td>
+        <td><%= link_to 'Eliminar', profesor_ciclo, :confirm => '¿Está usted seguro?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Profesor ciclo', new_profesor_ciclo_path %>

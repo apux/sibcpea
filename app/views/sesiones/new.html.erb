@@ -1,0 +1,43 @@
+<%= form_tag sesiones_path do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          <%= label_tag :login, 'Nombre de usuario' %>:
+        </td>
+        <td class="input">
+          <%= text_field_tag :login, params[:login] %>
+        </td>
+      </tr> 
+      <tr>
+        <td class="loginspacer"></td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= label_tag :password, 'Contraseña' %>:
+        </td>
+        <td class="input">
+          <%= password_field_tag :password, params[:password] %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <p class="button"><%= submit_tag 'Ingresar' %><p>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+<br />
+<br />
+<%= link_to 'Registrarse', registro_path %>

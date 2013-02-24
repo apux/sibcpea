@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profesor materia:</b>
+  <%= @asistencia_grupo.profesor_materia %>
+</p>
+
+<p>
+  <b>Grupo:</b>
+  <%= @asistencia_grupo.grupo %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @asistencia_grupo.fecha %>
+</p>
+
+
+<%= link_to 'Edit', edit_asistencia_grupo_path(@asistencia_grupo) %> |
+<%= link_to 'Back', asistencia_grupos_path %>

@@ -1,0 +1,51 @@
+<%= form_for(@tutoria) do |f| %>
+  <%= render 'shared/error_messages', :target => @tutoria%>
+
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">Datos de la Tutoría</td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>                                                             
+        <td class="name">
+          <%= f.label :profesor_id, 'Profesor' %>:
+        </td>
+        <td class="input">
+          <%= f.select :profesor_id,  Profesor.all.collect{|p| [p.nombre_completo, p.id]} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <%= f.label :alumno_id, 'Alumno' %>:
+        </td>
+        <td class="input">
+          <%= f.select :alumno_id, Alumno.all.collect{|a| [a.nombre_completo, a.id]}  %>
+        </td>
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

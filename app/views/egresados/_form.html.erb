@@ -1,0 +1,40 @@
+<%= form_for(@egresado) do |f| %>
+  <%= render 'shared/error_messages', :target => @egresado %>
+
+  <div class="field">
+    <%= f.label :alumno %><br />
+    <%= f.select :alumno_id, @alumnos.collect{|a| [a.nombre, a.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :generacion %><br />
+    <%= f.select:generacion_id, Generacion.all.collect{|g| [g.ciclo1.clave, g.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :titulado %><br />
+    <%= f.check_box :titulado, :onclick => "$('titulado_fields').toggle();" %>
+  </div>
+  <div id="titulado_fields" style="display:none">
+    <div class="field">
+      <%= f.label :metodo %><br />
+      <%= f.select :metodo, ["TESIS", "CENEVAL", "OTRO"] %>
+    </div>
+    <div class="field">
+      <%= f.label :fecha %><br />
+      <%= f.date_select :fecha %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript" language="javascript">
+  var links = $$('.field input');
+  links.each(
+      function(element) {
+        Event.observe(element, 'keyup', function(){
+          element.value = element.value.toUpperCase();
+        });
+      }
+      );
+</script>

@@ -1,0 +1,64 @@
+<%= form_tag genera_reporte_calificaciones_path do %>
+  <table class="form">
+    <thead>
+      <tr>
+        <td colspan="2">
+          Seleccione los datos necesarios
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">
+          Materia:
+        </td>
+        <td class="input">
+          <% materias = Materia.joins(:profesores_materias => :profesor_ciclo).where("profesores_ciclos.profesor_id" => usuario_actual.profesor_id).all %>
+          <%= select_tag :materia_id, options_from_collection_for_select(materias, "id", "nombre") %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Grupo:
+        </td>
+        <td class="input">
+          <% grupos = Grupo.joins(:profesores_materias => :profesor_ciclo).where("profesores_ciclos.profesor_id" => usuario_actual.profesor_id).all %>
+          <%= select_tag :grupo_id, options_from_collection_for_select(grupos, "id", "nombre") %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Examen:
+        </td>
+        <td class="input">
+          <%= select_tag :examen, options_for_select(Calificacion::TIPOS_EXAMENES) %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Aplicación:
+        </td>
+        <td class="input">
+          <%= date_select :fecha_aplicacion, nil %>
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          Entrega:
+        </td>
+        <td class="input">
+          <%= date_select :fecha_entrega, nil %>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="actions">
+            <%= submit_tag 'Generar reporte' %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
