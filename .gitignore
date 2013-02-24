@@ -11,3 +11,4 @@ public/system/
 public/contribuyentes/
 .sass-cache/
 config/deploy.rb
+config/database.yml
