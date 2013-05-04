@@ -86,7 +86,7 @@
                               <%= calificacion.alumno_ciclo.alumno.matricula %>
                             </td>
                             <td style="border-bottom:1px solid black; width: 380px;">
-                              <%= calificacion.alumno_ciclo.alumno.nombre_completo %>
+                              <%= calificacion.alumno_ciclo.alumno.nombre_completo :apellidos %>
                             </td>
                             <td style="border:1px solid black; width: 100px; text-align: center;">
                             <%= calificacion_especifica.class.name.to_s == "String" ? "0.0" : calificacion_especifica %>
